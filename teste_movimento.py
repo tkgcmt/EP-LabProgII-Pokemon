@@ -9,14 +9,16 @@ import sys
 class TestadorArena(uni.TestCase):
    def setUp(self):
       arq = open('in_mov', 'w+')
-      arq.write('blaster\n-1\n15\n1\n-10\n200\n90\n-50\n50\n256\n-40\n62\n40\n')
+      arq.write('blaster\n-1\n15\n1\n-10\n200\n90\n-50\n256\n50\n-40\n62\n40\n')
       arq.close()
       arq = open('in_mov', 'r')
       sys.stdin = arq
       self.blaster = mov.Movimento()
+      arq.close()
 
 
-   # Testa se a leitura da entrada verifica os erros de valores extremos e testa os getters tambem.
+   # Testa se a leitura da entrada verifica os erros de valores extremos e 
+   # testa os getters tambem.
    def testaEntrada(self):
       self.assertEqual('blaster' , self.blaster.get_name())
       self.assertEqual(1, self.blaster.get_type())

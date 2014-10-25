@@ -123,7 +123,7 @@ class Pokemon:
 
    def get_movimento ( self, num ):
       return self.moveset[num]
-   '''
+
    ### Setters
    def set_name ( self, nome ):
       self.name = nome
@@ -161,12 +161,11 @@ class Pokemon:
       else:
          print ( 'ERRO: TIpo invalido' )
 
-   '''
    ### Metodos
    def possui_ataques ( self ):
       for i in range ( self.numAtk ):
          atk = self.moveset[i]
-         if atk.tem_movimentos() == True:
+         if atk.get_pp () > 0:
             return True
       return False
 

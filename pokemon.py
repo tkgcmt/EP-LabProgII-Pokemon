@@ -1,71 +1,70 @@
 import movimento as mov
 
 class Pokemon:
-
    ### Criacao do ataque struggle
    struggle = mov.Movimento.__new__ ( mov.Movimento )
-   struggle.set_name ( 'Struggle' )
-   struggle.set_type ( 0 )
-   struggle.set_accu ( 100 )
-   struggle.set_power ( 50 )
-   struggle.set_ppmax ( 10 )
-   struggle.set_pp ( 10 )
+   struggle.name = 'Struggle'
+   struggle.type = 0 
+   struggle.accu = 100
+   struggle.power = 50
+   struggle.ppmax = 10
+   struggle.pp = 10
 
    def __init__ ( self ):
-      self.name = input ( 'Digite o nome do pokemon: ' )
+      self.name = input ( 'Digite o nome do pokemon: \n' )
 
       while ( True ):
-         self.lvl = int ( input ( 'Digite o level do pokemon: ' ) )
+         self.lvl = int ( input ( 'Digite o level do pokemon: \n' ) )
          if self.lvl >= 1 and self.lvl <= 100:
             break
          else:
             print ( 'ERROR: Level invalido' )
 
       while ( True ):
-         self.hpmax = int ( input ( 'Digite a vida do pokmeon: ' ) )
-         if self.hpmax >= 1:
+         self.hpmax = int ( input ( 'Digite a vida do pokemon: \n' ) )
+         if self.hpmax >= 1 and self.hpmax < 255:
             self.hp = self.hpmax
             break
          else:
             print ( 'ERRO: Valor de vida invalido' )
 
       while ( True ):
-         self.atk = int ( input ( 'Digite o ataque do pokemon: ' ) )
+         self.atk = int ( input ( 'Digite o ataque do pokemon: \n' ) )
          if self.atk >= 0 and self.atk <= 255:
             break
          else:
             print ( 'ERRO: Valor de ataque invalido' )
 
       while ( True ):
-         self.defe = int ( input ( 'Digite a defesa do pokemon: ' ) )
+         self.defe = int ( input ( 'Digite a defesa do pokemon: \n' ) )
          if self.defe >= 0 and self.defe <= 255:
             break
          else:
             print ( 'ERRO: Valor de defesa invalido' )
 
       while ( True ):
-         self.spd = int ( input ( 'Digite a velocidade do pokemon: ' ) )
+         self.spd = int ( input ( 'Digite a velocidade do pokemon: \n' ) )
          if self.spd >= 0 and self.spd <= 255:
             break
          else:
             print ( 'ERRO: Valor de velocidade invalido' )
 
       while ( True ):
-         self.spc = int ( input ( 'Digite o especial do pokemon: ' ) )
+         self.spc = int ( input ( 'Digite o especial do pokemon: \n' ) )
          if self.spc >= 0 and self.spc <= 255:
             break
          else:
             print ( 'ERRO: Valor de especial invalido' )
 
       while ( True ):
-         self.type1 = int ( input ( 'Digite o tipo 1 do pokemon: ' ) )
+         self.type1 = int ( input ( 'Digite o tipo 1 do pokemon: \n' ) )
          if self.type1 >= 0 and self.type1 <= 14:
             break
          else:
             print ( 'ERRO: Tipo 1 invalido' )
 
       while ( True ):
-         self.type2 = input ( 'Digite o tipo 2 do pokemon: ' )
+         self.type2 = input ( 'Digite o tipo 2 do pokemon: \n' )
          if self.type2 == '':
             self.type2 = 15
          else:
@@ -76,8 +75,8 @@ class Pokemon:
             print ( 'ERRO: Tipo 2 invalido' )
 
       while ( True ):
-         self.numAtk = int ( input ( 'Digite o numero de ataques do pokemon: '))
-         if self.numAtk > 0 and self.numAtk <= 4:
+         self.numAtk = int ( input ( 'Digite o numero de ataques do pokemon: \n'))
+         if self.numAtk >= 0 and self.numAtk <= 4:
             self.moveset = []
             for i in range ( self.numAtk ):
                print ( '--- Ataque', i, '---' )
@@ -123,16 +122,18 @@ class Pokemon:
 
    def get_movimento ( self, num ):
       return self.moveset[num]
-   '''
+      
+      
    ### Setters
+   def set_hp ( self, vida ):
+      if vida >= 0 and vida <= self.hpmax:
+         self.hp = vida
+   '''
    def set_name ( self, nome ):
       self.name = nome
 
    def set_level ( self, level ):
       self.lvl = level
-
-   def set_hp ( self, vida ):
-      self.hp = vida
 
    def set_hpmax ( self, vida ):
       self.hpmax = vida
@@ -169,13 +170,20 @@ class Pokemon:
          if atk.tem_movimentos() == True:
             return True
       return False
+   
+   # mostra o ataque de indice i do objeto
+   def mostra_ataque ( self, i ):
+      ptr = self.get_movimento ( i )
+      linha = ('  '+ str(i) + ' - ' + ptr.get_name() + '  PP:( '
+      + str(ptr.get_pp ()) + ' / ' + str(ptr.get_ppmax ()) + ' )')
+      return linha 
 
-   def mostra_ataques ( self ):
+   # mostra a lista de ataques do objeto
+   def mostra_lista_movimentos ( self ):
       print ( self.name )
       for i in range ( self.numAtk ):
-         ptr = self.get_movimento ( i )
-         print ( '  ', i, '-', ptr.get_name (), ' (', ptr.get_pp (), '/',
-                 ptr.get_ppmax (), ')' )
+         print(mostra_ataque( i ))
+      print('\n')
 
    def esta_vivo ( self ):
       if self.hp > 0:

@@ -73,4 +73,4 @@ class Movimento:
       if self.pp != 0:
          self.pp -= 1
       else:
-         print('Algo esta errado, mas podemos continuar\n')
+         print('ERRO: (PP) - Algo esta errado, mas podemos continuar.\n')

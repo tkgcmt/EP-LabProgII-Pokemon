@@ -93,31 +93,37 @@ class Arena:
          return True
       else:
          return False
-
+         
+def cria_info_turno ( self, poke1, poke2 ):
+      s = ( '\n' )
+      s += ( 'Turno #' + self.contador + '\n' )
+      s += ( '\n' )
+      s += ( '                              +---\n' )
+      s += ( '                              | Nome:' + poke2.get_name () + '\n' )
+      s += ( '                              | HP:' + (poke2.gethp () / poke2.get_hpmax () ) * 100 + '\n' )
+      s += ( '                              +---\n' )
+      s += ( '\n' )
+      s += ( ' +---\n' )
+      s += ( ' | Nome:' + poke1.get_name () +'\n' )
+      s += ( ' | HP:' + ( poke1.get_hp () / poke1.get_hpmax () ) * 100 + '%' + '\n' )
+      s += ( ' +---\n' )
+      s += ( '\n' )
+      
+      return s
+      
    def mostra_info_turno ( self, poke1, poke2 ):
-      print ()
-      print ( ' Turno #', self.contador )
-      print ( )
-      print ( '                              +---' )
-      print ( '                              | Nome:', poke2.get_name () )
-      print ( '                              | HP:', ( poke2.get_hp () /
-                                             poke2.get_hpmax () ) * 100, '%' )
-      print ( '                              +---' )
-      print ()
-      print ( ' +---' )
-      print ( ' | Nome:', poke1.get_name () )
-      print ( ' | HP:', ( poke1.get_hp () / poke1.get_hpmax () ) * 100, '%' )
-      print ( ' +---' )
-      print ( )
+      print ( cria_info_turno (poke1, poke2) )
 
+   def cria_info_pokemon ( self, poke ):
+      s = ( '\n' )
+      s += ( ' +---\n' )
+      s += ( ' | Nome:' + poke.get_name () + '\n')
+      s += ( ' | HP:' + poke.get_hp + '/' + poke.get_hp_max () + '\n' )
+      
+      return s
+      
    def mostra_info_pokemon ( self, poke ):
-      print ( )
-      print ( ' +---' )
-      print ( ' | Nome:', poke.get_name () )
-      print ( ' | HP:', poke.get_hp (), '/', poke.get_hpmax () )
-      print ( ' +---' )
-      print ( )
-
+      print ( cria_info_pokemon ( poke ) )
 
    def escolhe_ataques ( self, poke ):
       self.mostra_info_pokemon ( poke )

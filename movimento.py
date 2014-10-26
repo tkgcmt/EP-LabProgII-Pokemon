@@ -1,33 +1,53 @@
 class Movimento:
 
    def __init__ ( self ):
+      # attack name
       self.name = input ( 'Digite o nome do ataque: \n' )
+      # type
       while ( True ):
-         self.type = int ( input ( 'Digite o tipo do ataque: \n' ) )
-         if self.type >= 0 and self.type < 15:
-            break
-         else:
+         try:
+            self.type = int ( input ( 'Digite o tipo do ataque: \n' ) )
+            if self.type >= 0 and self.type < 15:
+               break
+            else:
+               print ( 'ERRO: Tipo invalido. Tente novamente' )
+         except ValueError:
             print ( 'ERRO: Tipo invalido. Tente novamente' )
 
+      # accuracy
       while ( True ):
-         self.accu = int ( input ( 'Digite a acuracia do ataque: \n' ) )
-         if self.accu >= 0 and self.accu < 101:
-            break
-         else:
+         try:
+            self.accu = int ( input ( 'Digite a acuracia do ataque: \n' ) )
+            if self.accu >= 0 and self.accu < 101:
+               break
+            else:
+               print ( 'ERRO: Acuracia invalida. Tente novamente' )
+         except ValueError:
             print ( 'ERRO: Acuracia invalida. Tente novamente' )
 
+      #power
       while (True):
-         self.power = int ( input ( 'Digite o poder do ataque: \n' ) ) 
-         if self.power >=0 and self.power <=255:
-            break;
-         else:
+         try:
+            self.power = int ( input ( 'Digite o poder do ataque: \n' ) ) 
+            if self.power >=0 and self.power <=255:
+               break;
+            else:
+               print ( 'ERRO: Poder do ataque invalido. Tente novamente' )
+         except ValueError:
             print ( 'ERRO: Poder do ataque invalido. Tente novamente' )
+            pass
+
+      # ppmax
       while (True):
-         self.ppmax = int ( input ( 'Digite quantos power points: \n' ) )
-         if self.ppmax>=0 and self.ppmax<=61:
-            break;
-         else:
+         try:
+            self.ppmax = int ( input ( 'Digite quantos power points: \n' ) )
+            if self.ppmax>=0 and self.ppmax<=61:
+               break;
+            else:
+               print ( 'ERRO: Valor de Power points invalido. Tente novamente' )
+         except ValueError:
             print ( 'ERRO: Valor de Power points invalido. Tente novamente' )
+      # pp
       self.pp = self.ppmax
 
    ### Getters

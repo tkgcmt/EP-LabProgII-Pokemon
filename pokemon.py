@@ -14,77 +14,114 @@ class Pokemon:
       self.name = input ( 'Digite o nome do pokemon: \n' )
 
       while ( True ):
-         self.lvl = int ( input ( 'Digite o level do pokemon: \n' ) )
-         if self.lvl >= 1 and self.lvl <= 100:
-            break
-         else:
+         try:
+            self.lvl = int ( input ( 'Digite o level do pokemon: \n' ) )
+            if self.lvl >= 1 and self.lvl <= 100:
+               break
+            else:
+               print ( 'ERROR: Level invalido' )
+         except ValueError:
             print ( 'ERROR: Level invalido' )
+            pass
 
       while ( True ):
-         self.hpmax = int ( input ( 'Digite a vida do pokemon: \n' ) )
-         if self.hpmax >= 1 and self.hpmax < 255:
-            self.hp = self.hpmax
-            break
-         else:
+         try:
+            self.hpmax = int ( input ( 'Digite a vida do pokemon: \n' ) )
+            if self.hpmax >= 1 and self.hpmax < 255:
+               self.hp = self.hpmax
+               break
+            else:
+               print ( 'ERRO: Valor de vida invalido' )
+         except ValueError:
             print ( 'ERRO: Valor de vida invalido' )
+            pass
 
       while ( True ):
-         self.atk = int ( input ( 'Digite o ataque do pokemon: \n' ) )
-         if self.atk >= 0 and self.atk <= 255:
-            break
-         else:
+         try:
+            self.atk = int ( input ( 'Digite o ataque do pokemon: \n' ) )
+            if self.atk >= 0 and self.atk <= 255:
+               break
+            else:
+               print ( 'ERRO: Valor de ataque invalido' )
+         except ValueError:
             print ( 'ERRO: Valor de ataque invalido' )
+            pass
 
       while ( True ):
-         self.defe = int ( input ( 'Digite a defesa do pokemon: \n' ) )
-         if self.defe >= 0 and self.defe <= 255:
-            break
-         else:
+         try:
+            self.defe = int ( input ( 'Digite a defesa do pokemon: \n' ) )
+            if self.defe >= 0 and self.defe <= 255:
+               break
+            else:
+               print ( 'ERRO: Valor de defesa invalido' )
+         except ValueError:
             print ( 'ERRO: Valor de defesa invalido' )
+            pass
 
       while ( True ):
-         self.spd = int ( input ( 'Digite a velocidade do pokemon: \n' ) )
-         if self.spd >= 0 and self.spd <= 255:
-            break
-         else:
+         try:
+            self.spd = int ( input ( 'Digite a velocidade do pokemon: \n' ) )
+            if self.spd >= 0 and self.spd <= 255:
+               break
+            else:
+               print ( 'ERRO: Valor de velocidade invalido' )
+         except ValueError:
             print ( 'ERRO: Valor de velocidade invalido' )
+            pass
 
       while ( True ):
-         self.spc = int ( input ( 'Digite o especial do pokemon: \n' ) )
-         if self.spc >= 0 and self.spc <= 255:
-            break
-         else:
+         try:
+            self.spc = int ( input ( 'Digite o especial do pokemon: \n' ) )
+            if self.spc >= 0 and self.spc <= 255:
+               break
+            else:
+               print ( 'ERRO: Valor de especial invalido' )
+         except ValueError:
             print ( 'ERRO: Valor de especial invalido' )
+            pass
 
       while ( True ):
-         self.type1 = int ( input ( 'Digite o tipo 1 do pokemon: \n' ) )
-         if self.type1 >= 0 and self.type1 <= 14:
-            break
-         else:
+         try:
+            self.type1 = int ( input ( 'Digite o tipo 1 do pokemon: \n' ) )
+            if self.type1 >= 0 and self.type1 <= 14:
+               break
+            else:
+               print ( 'ERRO: Tipo 1 invalido' )
+         except ValueError:
             print ( 'ERRO: Tipo 1 invalido' )
+            pass
 
       while ( True ):
-         self.type2 = input ( 'Digite o tipo 2 do pokemon: \n' )
-         if self.type2 == '':
-            self.type2 = 15
-         else:
-            self.type2 = int ( self.type2 )
-         if self.type2 >= 0 and self.type2 <= 15:
-            break
-         else:
+         try:
+            self.type2 = input ( 'Digite o tipo 2 do pokemon: \n' )
+            if self.type2 == '':
+               self.type2 = 15
+            else:
+               self.type2 = int ( self.type2 )
+            if self.type2 >= 0 and self.type2 <= 15:
+               break
+            else:
+               print ( 'ERRO: Tipo 2 invalido' )
+         except ValueError:
             print ( 'ERRO: Tipo 2 invalido' )
+            pass
 
       while ( True ):
-         self.numAtk = int ( input ( 'Digite o numero de ataques do pokemon: \n'))
-         if self.numAtk >= 0 and self.numAtk <= 4:
-            self.moveset = []
-            for i in range ( self.numAtk ):
-               print ( '--- Ataque', i, '---' )
-               self.moveset.append ( mov.Movimento () )
-            self.moveset.append ( self.struggle )
-            break
-         else:
+         try:
+            self.numAtk = int ( input ( 'Digite o numero de ataques do pokemon: \n'))
+            if self.numAtk >= 0 and self.numAtk <= 4:
+               self.moveset = []
+               for i in range ( self.numAtk ):
+                  print ( '--- Ataque', i, '---' )
+                  self.moveset.append ( mov.Movimento () )
+               self.moveset.append ( self.struggle )
+               break
+            else:
+               print ( 'ERRO: Numero invalido de ataques' )
+         except ValueError:
             print ( 'ERRO: Numero invalido de ataques' )
+            pass
+            
 
    ### Getters
    def get_name ( self ):

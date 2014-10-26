@@ -3,21 +3,18 @@
 import movimento as mov
 import unittest as uni
 import sys
+import os
 
 
 # Rotina para testar objetos do tipo Movimento()
 class TestadorMovimento(uni.TestCase):
    def setUp(self):
-
-      # Redireciona arq para stdin
-      with open('in_mov', 'w+') as arq:
-         arq.write('blaster\n-1\n15\n1\n-10\n200\n90\n-50\n256\n50\n-40\n62\n40\n')
+      if os.path.isfile('in_mov') == False:
+         # Redireciona arq para stdin
+         with open('in_mov', 'w+') as arq:
+            arq.write('blaster\n-1\n15\n1\n-10\n200\n90\n-50\n256\n50\n-40\n62\n40\n')
       with open('in_mov', 'r') as sys.stdin:
-         # Redireciona stdout para temp, suprimindo impressoes desnecessarias
-         with open('.temp','w+') as sys.stdout:
-            self.blaster = mov.Movimento()
-      sys.stdout = sys.__stdout__
-
+         self.blaster = mov.Movimento()
 
    # Testa o tratamento da entrada corrigiu os valores extremos ao mesmo tempo
    # que testa os getters.
@@ -99,4 +96,4 @@ class TestadorMovimento(uni.TestCase):
       self.assertEqual(0, self.blaster.get_pp())
       
 if __name__ == '__main__':
-   uni.main()
+   uni.main(buffer=True)

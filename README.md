@@ -1,7 +1,15 @@
 Contribuidores:
-Nome: Christian M. T. Takagi                 No. USP: 7136971                  
-Disciplina: Laboratório de Programação II    Prof. Andre Fujita                
-Exercicio Programa - Etapa 1                 Arquivo: README.md                
+Nome                        | No. USP:
+---------------------------------------
+Christian M. T. Takagi      | 7136971
+Cinthia M Tanaka            | 5649479
+Daniel A. Nagata            | 7278048
+Fernando T. Tanaka          | ???????
+
+Disciplina: Laboratório de Programação II       
+Prof. Alfredo Goldman
+Exercicio Programa - Etapa 1                    
+Arquivo: README.md
 
 
 1. Introdução
@@ -74,4 +82,4 @@ confiando nas rotinas de impressão.
 
  * Teste de Arena
  * Adicionar formulas de stats
- * Main
+ * ~~Main~~

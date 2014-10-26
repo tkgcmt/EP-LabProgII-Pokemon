@@ -1,4 +1,3 @@
-import movimento
 import pokemon
 import random
 import os
@@ -26,8 +25,20 @@ class Arena:
              ]
 
    def base_damage ( self, pokeA, atk, pokeB ):
-      termo1 = ( 2 * pokeA.get_level () + 10 ) / 250
-      termo2 = pokeA.get_atk () / pokeB.get_def () * atk.get_power ()
+      termo1 = ( 2 * pokeA.get_level () + 10 ) / 250.0
+      print('\n\nA.lvl: ', pokeA.get_level())
+      if atk.get_type() >= 0 and atk.get_type() <= 8:
+         termo2 = pokeA.get_atk () / pokeB.get_def () * atk.get_power ()
+         print('\natk.power: ', atk.get_power())
+         print('\nA.atk: ', pokeA.get_atk())
+         print('\nB.def: ', pokeA.get_def())
+      else:
+         termo2 = pokeA.get_spc () / pokeB.get_spc () * atk.get_power ()
+         print('\natk.power: ', atk.get_power())
+         print('\nA.spc: ', pokeA.get_spc())
+         print('\nB.spc: ', pokeB.get_spc())
+
+      print("termo1: ", termo1, "\ntermo 2: ", termo2)
       return ( termo1 * termo2 + 2 )
 
    def stab ( self, pokemon, movimento ):
@@ -44,8 +55,10 @@ class Arena:
          effect = effect * self.tabela [atk.get_type ()][pokemon.get_type2 ()]
       if effect > 1:
          print ( 'Ataque super efetivo' )
-      elif effect < 1:
+      elif effect > 0:
          print ( 'Ataque nao muito efetivo' )
+      else:
+         print ( 'Ataque nao causa dano' )
       return effect
 
    def critical ( self, pokemon ):
@@ -189,7 +202,7 @@ class Arena:
       else:
          return False
 
-   def __init__ ( self ):
+   def main( self ):
       print ( ' Player 1 ' )
       self.pkmn1 = pokemon.Pokemon ()
       os.system ( 'clear' )
@@ -210,3 +223,7 @@ class Arena:
          print ( ' PLAYER 1 VENCEU' )
       else:
          print ( ' PLAYER 2 VENCEU' )
+
+if __name__ == '__main__':
+   a = Arena()
+   a.main()

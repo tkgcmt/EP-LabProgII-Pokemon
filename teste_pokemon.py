@@ -82,4 +82,4 @@ class TestadorPokemon(uni.TestCase):
 
 
 if __name__ == '__main__':
-   uni.main(verbosity=1, buffer=True)
+   uni.main( buffer=True)

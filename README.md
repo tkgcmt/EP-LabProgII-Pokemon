@@ -1,10 +1,9 @@
-Contribuidores:
-Nome                        | No. USP:
----------------------------------------
-Christian M. T. Takagi      | 7136971
-Cinthia M Tanaka            | 5649479
-Daniel A. Nagata            | 7278048
-Fernando T. Tanaka          | ???????
+|Contribuidores              | No. USP |
+|----------------------------|---------|
+|Christian M. T. Takagi      | 7136971 |
+|Cinthia M Tanaka            | 5649479 |
+|Daniel A. Nagata            | 7278048 |
+|Fernando T. Tanaka          | 6920230 |
 
 Disciplina: Laboratório de Programação II       
 Prof. Alfredo Goldman
@@ -42,18 +41,11 @@ As relações entra as classes são facilmente visualizadas no arquivo pokemon.d
 3. Execução
 ================================================================================
 
-Temporariamente estamos trabalhando sem uma rotina main, então para executar
-o programa, inicie uma sessão interativa do python 3
+Para executar o programa, utilize a versao 3 do python, chamando o arquivo arena.py, como a seguir
+    $ python3 arena.py
 
-    $ python #Se apenas a versão 3 estiver instalada
-    $ python3 #Se outras versões estiverem presentes
-
-Em seguida, importe arena e crie um objeto desse tipo.
-    >>> import arena
-    >>> obj = arena.Arena()
-
-O programa estará em execução, basta digitar as informações pedidas até o
-seu fim.
+Se preferir, temos um arquivo para servir de entrada, chamado 'simulacao':
+    $ python3 arena.py < simulacao
 
 6. Testes
 ================================================================================
@@ -66,9 +58,12 @@ a entrada padrão. O próprio teste se encarrega de criar os arquivos necessári
 
 As entradas criadas possuem valores acima dos limites superiores e inferiores.
 
-Os teste das classes pokemon e movimento são bastante objetivas, sendo simples
+Os testes das classes pokemon e movimento são bastante objetivas, sendo simples
 comparações de valores, em suma.
 
+Os testes de arena.py não realiza testes para algumas funções, pois essas
+são apenas interfaces que invocam a chamada outras funcões núcleo. Testamos 
+essas funções núcleo, apenas.
 
 5. Dificuldades
 ================================================================================
@@ -80,6 +75,6 @@ confiando nas rotinas de impressão.
 6. A fazer
 ================================================================================
 
- * Teste de Arena
  * Adicionar formulas de stats
- * ~~Main~~
+  - Usamos os apenas os valores base como atributos dos pokemons,
+  precisamos alterá-los em função do level. (Não especificado no enunciado)

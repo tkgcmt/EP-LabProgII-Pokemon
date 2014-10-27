@@ -1,4 +1,17 @@
 #!/usr/bin/python3
+'''
+|Contribuidores              | No. USP |
+|----------------------------|---------|
+|Christian M. T. Takagi      | 7136971 |
+|Cinthia M Tanaka            | 5649479 |
+|Daniel A. Nagata            | 7278048 |
+|Fernando T. Tanaka          | 6920230 |
+
+Disciplina: Laboratório de Programação II       
+Prof. Alfredo Goldman
+Exercicio Programa - Etapa 1                    
+Arquivo: teste_movimento.py
+'''
 
 import movimento as mov
 import unittest as uni
@@ -15,6 +28,9 @@ class TestadorMovimento(uni.TestCase):
             arq.write('blaster\n-1\n15\n1\n-10\n200\n90\n-50\n256\n50\n-40\n62\n40\n')
       with open('in_mov', 'r') as sys.stdin:
          self.blaster = mov.Movimento()
+
+   def tearDown(self):
+      sys.stdin = sys.__stdin__
 
    # Testa o tratamento da entrada corrigiu os valores extremos ao mesmo tempo
    # que testa os getters.
@@ -97,3 +113,4 @@ class TestadorMovimento(uni.TestCase):
       
 if __name__ == '__main__':
    uni.main(buffer=True)
+   os.remove("in_mov")

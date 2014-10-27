@@ -1,4 +1,17 @@
 #!/usr/bin/python3
+'''
+|Contribuidores              | No. USP |
+|----------------------------|---------|
+|Christian M. T. Takagi      | 7136971 |
+|Cinthia M Tanaka            | 5649479 |
+|Daniel A. Nagata            | 7278048 |
+|Fernando T. Tanaka          | 6920230 |
+
+Disciplina: Laboratório de Programação II       
+Prof. Alfredo Goldman
+Exercicio Programa - Etapa 1                    
+Arquivo: teste_pokemon.py
+'''
 
 import pokemon as pok
 import unittest as uni
@@ -27,6 +40,8 @@ class TestadorPokemon(uni.TestCase):
          sys.stdin = arq
          self.mew = pok.Pokemon()
 
+   def tearDown(self):
+      sys.stdin = sys.__stdin__
 
    # Testa se a leitura da entrada trata os valores extremos e tambem 
    # testa os getters.

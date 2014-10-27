@@ -1,0 +1,667 @@
+ Player 1 
+Digite o nome do pokemon: 
+Digite o level do pokemon: 
+Digite a vida do pokemon: 
+Digite o ataque do pokemon: 
+Digite a defesa do pokemon: 
+Digite a velocidade do pokemon: 
+Digite o especial do pokemon: 
+Digite o tipo 1 do pokemon: 
+Digite o tipo 2 do pokemon: 
+Digite o numero de ataques do pokemon: 
+--- Ataque 0 ---
+Digite o nome do ataque: 
+Digite o tipo do ataque: 
+Digite a acuracia do ataque: 
+Digite o poder do ataque: 
+Digite quantos power points: 
+--- Ataque 1 ---
+Digite o nome do ataque: 
+Digite o tipo do ataque: 
+Digite a acuracia do ataque: 
+Digite o poder do ataque: 
+Digite quantos power points: 
+[H[2J Player 2 
+Digite o nome do pokemon: 
+Digite o level do pokemon: 
+Digite a vida do pokemon: 
+Digite o ataque do pokemon: 
+Digite a defesa do pokemon: 
+Digite a velocidade do pokemon: 
+Digite o especial do pokemon: 
+Digite o tipo 1 do pokemon: 
+Digite o tipo 2 do pokemon: 
+Digite o numero de ataques do pokemon: 
+--- Ataque 0 ---
+Digite o nome do ataque: 
+Digite o tipo do ataque: 
+Digite a acuracia do ataque: 
+Digite o poder do ataque: 
+Digite quantos power points: 
+--- Ataque 1 ---
+Digite o nome do ataque: 
+Digite o tipo do ataque: 
+Digite a acuracia do ataque: 
+Digite o poder do ataque: 
+Digite quantos power points: 
+--- Ataque 2 ---
+Digite o nome do ataque: 
+Digite o tipo do ataque: 
+Digite a acuracia do ataque: 
+Digite o poder do ataque: 
+Digite quantos power points: 
+--- Ataque 3 ---
+Digite o nome do ataque: 
+Digite o tipo do ataque: 
+Digite a acuracia do ataque: 
+Digite o poder do ataque: 
+Digite quantos power points: 
+[H[2J# Player 1
+
+Turno #1
+
+                              +---
+                              | Nome:Mew
+                              | HP:100.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:100.0%
+ +---
+
+
+
+ +---
+ | Nome:Charizard
+ | HP:78/78
+
+Charizard
+  0 - Flamethrower  PP:( 15 / 15 )
+  1 - Psychic  PP:( 10 / 10 )
+
+
+Qual ataque deseja executar?[H[2J# Player 2
+
+Turno #1
+
+                              +---
+                              | Nome:Mew
+                              | HP:100.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:100.0%
+ +---
+
+
+
+ +---
+ | Nome:Mew
+ | HP:100/100
+
+Mew
+  0 - Thunderbolt  PP:( 15 / 15 )
+  1 - Rock Slide  PP:( 10 / 10 )
+  2 - Earthquake  PP:( 1 / 1 )
+  3 - Bubblebeam  PP:( 20 / 20 )
+
+
+Qual ataque deseja executar?[H[2J
+Turno #1
+
+                              +---
+                              | Nome:Mew
+                              | HP:100.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:100.0%
+ +---
+
+
+Mew usou Earthquake
+Ataque nao causa dano
+Ataque critico
+Charizard perdeu 0.0 % da sua vida
+Charizard usou Psychic
+Ataque nao muito efetivo
+Mew perdeu 16.0 % da sua vida
+Pressione qualquer tecla para iniciar o proximo turno# Player 1
+
+Turno #2
+
+                              +---
+                              | Nome:Mew
+                              | HP:84.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:100.0%
+ +---
+
+
+
+ +---
+ | Nome:Charizard
+ | HP:78/78
+
+Charizard
+  0 - Flamethrower  PP:( 15 / 15 )
+  1 - Psychic  PP:( 9 / 10 )
+
+
+Qual ataque deseja executar?ERROR: Opcao invalida
+Qual ataque deseja executar?[H[2J# Player 2
+
+Turno #2
+
+                              +---
+                              | Nome:Mew
+                              | HP:84.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:100.0%
+ +---
+
+
+
+ +---
+ | Nome:Mew
+ | HP:84/100
+
+Mew
+  0 - Thunderbolt  PP:( 15 / 15 )
+  1 - Rock Slide  PP:( 10 / 10 )
+  2 - Earthquake  PP:( 0 / 1 )
+  3 - Bubblebeam  PP:( 20 / 20 )
+
+
+Qual ataque deseja executar?[H[2J
+Turno #2
+
+                              +---
+                              | Nome:Mew
+                              | HP:84.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:100.0%
+ +---
+
+
+Mew usou Thunderbolt
+Ataque super efetivo
+Charizard perdeu 117.94871794871796 % da sua vida
+Charizard usou Flamethrower
+Ataque nao muito efetivo
+Mew perdeu 58.333333333333336 % da sua vida
+Pressione qualquer tecla para iniciar o proximo turno# Player 1
+
+Turno #3
+
+                              +---
+                              | Nome:Mew
+                              | HP:35.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:100.0%
+ +---
+
+
+
+ +---
+ | Nome:Charizard
+ | HP:78/78
+
+Charizard
+  0 - Flamethrower  PP:( 14 / 15 )
+  1 - Psychic  PP:( 9 / 10 )
+
+
+Qual ataque deseja executar?[H[2J# Player 2
+
+Turno #3
+
+                              +---
+                              | Nome:Mew
+                              | HP:35.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:100.0%
+ +---
+
+
+
+ +---
+ | Nome:Mew
+ | HP:35/100
+
+Mew
+  0 - Thunderbolt  PP:( 14 / 15 )
+  1 - Rock Slide  PP:( 10 / 10 )
+  2 - Earthquake  PP:( 0 / 1 )
+  3 - Bubblebeam  PP:( 20 / 20 )
+
+
+Qual ataque deseja executar?[H[2J
+Turno #3
+
+                              +---
+                              | Nome:Mew
+                              | HP:35.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:100.0%
+ +---
+
+
+Mew usou Bubblebeam
+Ataque super efetivo
+Charizard perdeu 78.2051282051282 % da sua vida
+Charizard usou Psychic
+Ataque nao muito efetivo
+Mew perdeu 45.714285714285715 % da sua vida
+Pressione qualquer tecla para iniciar o proximo turno# Player 1
+
+Turno #4
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Charizard
+ | HP:17/78
+
+Charizard
+  0 - Flamethrower  PP:( 14 / 15 )
+  1 - Psychic  PP:( 8 / 10 )
+
+
+Qual ataque deseja executar?[H[2J# Player 2
+
+Turno #4
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Mew
+ | HP:19/100
+
+Mew
+  0 - Thunderbolt  PP:( 14 / 15 )
+  1 - Rock Slide  PP:( 10 / 10 )
+  2 - Earthquake  PP:( 0 / 1 )
+  3 - Bubblebeam  PP:( 19 / 20 )
+
+
+Qual ataque deseja executar?[H[2J
+Turno #4
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+Mew usou Rock Slide
+Ataque super efetivo
+Ataque critico
+Charizard perdeu 1758.8235294117649 % da sua vida
+Charizard usou Flamethrower
+Ataque nao muito efetivo
+Ataque critico
+Mew perdeu 478.94736842105266 % da sua vida
+Pressione qualquer tecla para iniciar o proximo turno# Player 1
+
+Turno #5
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Charizard
+ | HP:17/78
+
+Charizard
+  0 - Flamethrower  PP:( 13 / 15 )
+  1 - Psychic  PP:( 8 / 10 )
+
+
+Qual ataque deseja executar?[H[2J# Player 2
+
+Turno #5
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Mew
+ | HP:19/100
+
+Mew
+  0 - Thunderbolt  PP:( 14 / 15 )
+  1 - Rock Slide  PP:( 9 / 10 )
+  2 - Earthquake  PP:( 0 / 1 )
+  3 - Bubblebeam  PP:( 19 / 20 )
+
+
+Qual ataque deseja executar?[H[2J
+Turno #5
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+Mew usou Rock Slide
+Ataque super efetivo
+Ataque critico
+Charizard perdeu 1823.5294117647059 % da sua vida
+Charizard usou Flamethrower
+Ataque nao muito efetivo
+Mew perdeu 263.15789473684214 % da sua vida
+Pressione qualquer tecla para iniciar o proximo turno# Player 1
+
+Turno #6
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Charizard
+ | HP:17/78
+
+Charizard
+  0 - Flamethrower  PP:( 12 / 15 )
+  1 - Psychic  PP:( 8 / 10 )
+
+
+Qual ataque deseja executar?[H[2J# Player 2
+
+Turno #6
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Mew
+ | HP:19/100
+
+Mew
+  0 - Thunderbolt  PP:( 14 / 15 )
+  1 - Rock Slide  PP:( 8 / 10 )
+  2 - Earthquake  PP:( 0 / 1 )
+  3 - Bubblebeam  PP:( 19 / 20 )
+
+
+Qual ataque deseja executar?[H[2J
+Turno #6
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+Mew usou Thunderbolt
+Ataque super efetivo
+Charizard perdeu 594.1176470588235 % da sua vida
+Charizard usou Flamethrower
+Ataque nao muito efetivo
+Mew perdeu 273.6842105263158 % da sua vida
+Pressione qualquer tecla para iniciar o proximo turno# Player 1
+
+Turno #7
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Charizard
+ | HP:17/78
+
+Charizard
+  0 - Flamethrower  PP:( 11 / 15 )
+  1 - Psychic  PP:( 8 / 10 )
+
+
+Qual ataque deseja executar?[H[2J# Player 2
+
+Turno #7
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Mew
+ | HP:19/100
+
+Mew
+  0 - Thunderbolt  PP:( 13 / 15 )
+  1 - Rock Slide  PP:( 8 / 10 )
+  2 - Earthquake  PP:( 0 / 1 )
+  3 - Bubblebeam  PP:( 19 / 20 )
+
+
+Qual ataque deseja executar?[H[2J
+Turno #7
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+Mew usou Thunderbolt
+Ataque super efetivo
+Ataque critico
+Charizard perdeu 1088.235294117647 % da sua vida
+Charizard usou Flamethrower
+Ataque nao muito efetivo
+Mew perdeu 273.6842105263158 % da sua vida
+Pressione qualquer tecla para iniciar o proximo turno# Player 1
+
+Turno #8
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Charizard
+ | HP:17/78
+
+Charizard
+  0 - Flamethrower  PP:( 10 / 15 )
+  1 - Psychic  PP:( 8 / 10 )
+
+
+Qual ataque deseja executar?[H[2J# Player 2
+
+Turno #8
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Mew
+ | HP:19/100
+
+Mew
+  0 - Thunderbolt  PP:( 12 / 15 )
+  1 - Rock Slide  PP:( 8 / 10 )
+  2 - Earthquake  PP:( 0 / 1 )
+  3 - Bubblebeam  PP:( 19 / 20 )
+
+
+Qual ataque deseja executar?[H[2J
+Turno #8
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+Mew usou Thunderbolt
+Ataque super efetivo
+Charizard perdeu 511.7647058823529 % da sua vida
+Charizard usou Flamethrower
+Ataque nao muito efetivo
+Ataque critico
+Mew perdeu 505.2631578947368 % da sua vida
+Pressione qualquer tecla para iniciar o proximo turno# Player 1
+
+Turno #9
+
+                              +---
+                              | Nome:Mew
+                              | HP:19.0
+                              +---
+
+ +---
+ | Nome:Charizard
+ | HP:21.794871794871796%
+ +---
+
+
+
+ +---
+ | Nome:Charizard
+ | HP:17/78
+
+Charizard
+  0 - Flamethrower  PP:( 9 / 15 )
+  1 - Psychic  PP:( 8 / 10 )
+
+
+Qual ataque deseja executar?

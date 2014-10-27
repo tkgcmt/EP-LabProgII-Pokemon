@@ -1,44 +1,52 @@
+#!/usr/bin/python3
+'''
+|Contribuidores              | No. USP |
+|----------------------------|---------|
+|Christian M. T. Takagi      | 7136971 |
+|Cinthia M Tanaka            | 5649479 |
+|Daniel A. Nagata            | 7278048 |
+|Fernando T. Tanaka          | 6920230 |
+
+Disciplina: Laboratório de Programação II       
+Prof. Alfredo Goldman
+Exercicio Programa - Etapa 1                    
+Arquivo: arena.py
+'''
+
 import pokemon
 import random
 import os
 
 class Arena:
+   def __init__(self):
+      self.contador = 0
+      self.tabela = [               #Bird
+      #  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+      [ 1.0,1.0,1.0,1.0,1.0,0.5,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 ], # 0 - Normal
+      [ 2.0,1.0,0.5,0.5,1.0,2.0,1.0,0.5,0.0,1.0,1.0,1.0,1.0,0.5,2.0,1.0 ], # 1 - Fight
+      [ 1.0,2.0,1.0,1.0,1.0,0.5,1.0,2.0,1.0,1.0,1.0,2.0,0.5,1.0,1.0,1.0 ], # 2 - Fly
+      [ 1.0,1.0,1.0,0.5,0.5,0.5,1.0,2.0,0.5,1.0,1.0,2.0,1.0,1.0,1.0,1.0 ], # 3 - Poison
+      [ 1.0,1.0,0.0,2.0,1.0,2.0,1.0,0.5,1.0,2.0,1.0,0.5,2.0,1.0,1.0,1.0 ], # 4 - Ground
+      [ 1.0,0.5,2.0,1.0,0.5,1.0,1.0,2.0,1.0,2.0,1.0,1.0,1.0,1.0,2.0,1.0 ], # 5 - Rock
+      [ 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 ], # 6 - Bird
+      [ 1.0,0.5,0.5,2.0,1.0,1.0,1.0,1.0,0.5,0.5,1.0,2.0,1.0,2.0,1.0,1.0 ], # 7 - Bug
+      [ 0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0 ], # 8 - Ghost
+      [ 1.0,1.0,1.0,1.0,1.0,0.5,1.0,2.0,1.0,0.5,0.5,2.0,1.0,1.0,2.0,0.5 ], # 9 - Fire
+      [ 1.0,1.0,1.0,1.0,2.0,2.0,1.0,1.0,1.0,2.0,0.5,0.5,1.0,1.0,1.0,0.5 ], # 10 - Water
+      [ 1.0,1.0,0.5,0.5,2.0,2.0,1.0,0.5,1.0,0.5,2.0,0.5,1.0,1.0,1.0,0.5 ], # 11- Grass
+      [ 1.0,1.0,2.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,2.0,0.5,0.5,1.0,1.0,0.5 ], # 12- Eletr
+      [ 1.0,2.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.5,1.0,1.0 ], # 13- Psychc
+      [ 1.0,1.0,2.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,0.5,2.0,1.0,1.0,0.5,2.0 ], # 14- Ice
+      [ 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0 ]  # 15- Dragon
+                ]
 
-   tabela = [               #Bird
-   #  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
-   [ 1.0,1.0,1.0,1.0,1.0,0.5,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 ], # 0 - Normal
-   [ 2.0,1.0,0.5,0.5,1.0,2.0,1.0,0.5,0.0,1.0,1.0,1.0,1.0,0.5,2.0,1.0 ], # 1 - Fight
-   [ 1.0,2.0,1.0,1.0,1.0,0.5,1.0,2.0,1.0,1.0,1.0,2.0,0.5,1.0,1.0,1.0 ], # 2 - Fly
-   [ 1.0,1.0,1.0,0.5,0.5,0.5,1.0,2.0,0.5,1.0,1.0,2.0,1.0,1.0,1.0,1.0 ], # 3 - Poison
-   [ 1.0,1.0,0.0,2.0,1.0,2.0,1.0,0.5,1.0,2.0,1.0,0.5,2.0,1.0,1.0,1.0 ], # 4 - Ground
-   [ 1.0,0.5,2.0,1.0,0.5,1.0,1.0,2.0,1.0,2.0,1.0,1.0,1.0,1.0,2.0,1.0 ], # 5 - Rock
-   [ 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 ], # 6 - Bird
-   [ 1.0,0.5,0.5,2.0,1.0,1.0,1.0,1.0,0.5,0.5,1.0,2.0,1.0,2.0,1.0,1.0 ], # 7 - Bug
-   [ 0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0 ], # 8 - Ghost
-   [ 1.0,1.0,1.0,1.0,1.0,0.5,1.0,2.0,1.0,0.5,0.5,2.0,1.0,1.0,2.0,0.5 ], # 9 - Fire
-   [ 1.0,1.0,1.0,1.0,2.0,2.0,1.0,1.0,1.0,2.0,0.5,0.5,1.0,1.0,1.0,0.5 ], # 10 - Water
-   [ 1.0,1.0,0.5,0.5,2.0,2.0,1.0,0.5,1.0,0.5,2.0,0.5,1.0,1.0,1.0,0.5 ], # 11- Grass
-   [ 1.0,1.0,2.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,2.0,0.5,0.5,1.0,1.0,0.5 ], # 12- Eletr
-   [ 1.0,2.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.5,1.0,1.0 ], # 13- Psychc
-   [ 1.0,1.0,2.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,0.5,2.0,1.0,1.0,0.5,2.0 ], # 14- Ice
-   [ 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0 ]  # 15- Dragon
-             ]
 
    def base_damage ( self, pokeA, atk, pokeB ):
       termo1 = ( 2 * pokeA.get_level () + 10 ) / 250.0
-      print('\n\nA.lvl: ', pokeA.get_level())
       if atk.get_type() >= 0 and atk.get_type() <= 8:
          termo2 = pokeA.get_atk () / pokeB.get_def () * atk.get_power ()
-         print('\natk.power: ', atk.get_power())
-         print('\nA.atk: ', pokeA.get_atk())
-         print('\nB.def: ', pokeA.get_def())
       else:
          termo2 = pokeA.get_spc () / pokeB.get_spc () * atk.get_power ()
-         print('\natk.power: ', atk.get_power())
-         print('\nA.spc: ', pokeA.get_spc())
-         print('\nB.spc: ', pokeB.get_spc())
-
-      print("termo1: ", termo1, "\ntermo 2: ", termo2)
       return ( termo1 * termo2 + 2 )
 
    def stab ( self, pokemon, movimento ):
@@ -94,52 +102,56 @@ class Arena:
       else:
          return False
          
-def cria_info_turno ( self, poke1, poke2 ):
+   def cria_info_turno ( self, poke1, poke2 ):
       s = ( '\n' )
-      s += ( 'Turno #' + self.contador + '\n' )
+      s += ( 'Turno #' + str(self.contador) + '\n' )
       s += ( '\n' )
       s += ( '                              +---\n' )
-      s += ( '                              | Nome:' + poke2.get_name () + '\n' )
-      s += ( '                              | HP:' + (poke2.gethp () / poke2.get_hpmax () ) * 100 + '\n' )
+      s += ( '                              | Nome:' + poke2.get_name () + '\n')
+      s += ( '                              | HP:')
+      s += ( str(poke2.get_hp () / poke2.get_hpmax ()  * 100) + '%' + '\n' )
       s += ( '                              +---\n' )
       s += ( '\n' )
       s += ( ' +---\n' )
       s += ( ' | Nome:' + poke1.get_name () +'\n' )
-      s += ( ' | HP:' + ( poke1.get_hp () / poke1.get_hpmax () ) * 100 + '%' + '\n' )
-      s += ( ' +---\n' )
+      s += ( ' | HP:' + str( poke1.get_hp () / poke1.get_hpmax ()  * 100) + '%')
+      s += ( '\n +---\n' )
       s += ( '\n' )
-      
       return s
-      
+         
    def mostra_info_turno ( self, poke1, poke2 ):
-      print ( cria_info_turno (poke1, poke2) )
+      print ( self.cria_info_turno (poke1, poke2) )
 
    def cria_info_pokemon ( self, poke ):
       s = ( '\n' )
       s += ( ' +---\n' )
       s += ( ' | Nome:' + poke.get_name () + '\n')
-      s += ( ' | HP:' + poke.get_hp + '/' + poke.get_hp_max () + '\n' )
-      
+      s += ( ' | HP:' + str(poke.get_hp()) + '/' + str(poke.get_hpmax ()) + '\n' )
       return s
       
    def mostra_info_pokemon ( self, poke ):
-      print ( cria_info_pokemon ( poke ) )
+      print ( self.cria_info_pokemon ( poke ) )
 
    def escolhe_ataques ( self, poke ):
       self.mostra_info_pokemon ( poke )
-      poke.mostra_ataques ()
+      poke.mostra_lista_movimentos()
 
       if poke.possui_ataques ():
          while ( True ):
-            opt = int ( input ( 'Qual ataque deseja executar?' ) )
-            if opt >= 0 and opt < poke.get_numAtk ():
-               atk = poke.moveset[opt]
-               if atk.get_pp () < 1:
-                  print ( 'Sem movimentos restantes' )
+            try:
+               opt = int ( input ( 'Qual ataque deseja executar?' ) )
+               if opt >= 0 and opt < poke.get_numAtk ():
+                  atk = poke.moveset[opt]
+                  if atk.get_pp () < 1:
+                     print ( 'Sem movimentos restantes' )
+                  else:
+                     break
                else:
-                  break
-            else:
-               print ( 'ERRO: Ataque invalido' )
+                  print ( 'ERROR: Opcao invalida' )
+            except ValueError:
+               print ( 'ERROR: Opcao invalida' )
+               pass
+
       else:
          print ( poke.get_name (), 'nao possui mais ataques.' )
          opt = poke.get_numAtk ()
@@ -200,6 +212,7 @@ def cria_info_turno ( self, poke1, poke2 ):
 
       if primeiro.esta_vivo () and segundo.esta_vivo ():
          self.realiza_ataque ( segundo, second, primeiro )
+         return True
       else:
          return False
 
@@ -215,7 +228,6 @@ def cria_info_turno ( self, poke1, poke2 ):
       print ( ' Player 2 ' )
       self.pkmn2 = pokemon.Pokemon ()
       os.system ( 'clear' )
-      self.contador = 0
 
       while ( self.turno ( self.pkmn1, self.pkmn2 ) ):
          input ( 'Pressione qualquer tecla para iniciar o proximo turno' )

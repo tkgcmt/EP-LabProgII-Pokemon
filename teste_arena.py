@@ -45,10 +45,16 @@ class TestadorArena(uni.TestCase):
    # Testa o metodo base_damage()
    def testa_base_damage_atk(self):
       mov = self.mew.get_movimento(1)
-      self.assertAlmostEqual(44.303, self.a.base_damage(self.mew, mov, self.cha), 2)
+      x = self.a.base_damage(self.mew, mov, self.cha)
+      y = (( 2 * self.mew.get_level () + 10 ) / 250.0)
+      y = y * (self.mew.get_atk () / self.cha.get_def () * mov.get_power ()) + 2
+      self.assertAlmostEqual(x, y, 2)
    def testa_base_damage_spc(self):
       mov = self.cha.get_movimento(0)
-      self.assertAlmostEqual(37.53, self.a.base_damage(self.cha, mov, self.mew), 2)
+      x = self.a.base_damage(self.cha, mov, self.mew)
+      y = (( 2 * self.cha.get_level () + 10 ) / 250.0) 
+      y = y * (self.cha.get_spc () / self.mew.get_spc () * mov.get_power ()) + 2
+      self.assertAlmostEqual(x, y, 2)
 
 
    # Testa o metodo stab()
@@ -111,7 +117,7 @@ class TestadorArena(uni.TestCase):
                '\n' +
                '                              +---\n' +
                '                              | Nome:' + self.cha.get_name () + '\n' +
-               '                              | HP:' + str((self.cha.get_hp ()-i) / self.cha.get_hpmax ()  * 100) + '\n' +
+               '                              | HP:' + str((self.cha.get_hp ()-i) / self.cha.get_hpmax ()  * 100) + '%' + '\n' +
                '                              +---\n' +
                '\n' +
                ' +---\n' +

@@ -63,9 +63,9 @@ class Arena:
          effect = effect * self.tabela [atk.get_type ()][pokemon.get_type2 ()]
       if effect > 1:
          print ( 'Ataque super efetivo' )
-      elif effect > 0:
+      elif effect == 0.5:
          print ( 'Ataque nao muito efetivo' )
-      else:
+      elif effect == 0:
          print ( 'Ataque nao causa dano' )
       return effect
 
@@ -109,12 +109,12 @@ class Arena:
       s += ( '                              +---\n' )
       s += ( '                              | Nome:' + poke2.get_name () + '\n')
       s += ( '                              | HP:')
-      s += ( str(poke2.get_hp () / poke2.get_hpmax ()  * 100) + '%' + '\n' )
+      s += ( "%.2f" %(poke2.get_hp () / poke2.get_hpmax ()  * 100) + '%' + '\n' )
       s += ( '                              +---\n' )
       s += ( '\n' )
       s += ( ' +---\n' )
       s += ( ' | Nome:' + poke1.get_name () +'\n' )
-      s += ( ' | HP:' + str( poke1.get_hp () / poke1.get_hpmax ()  * 100) + '%')
+      s += ( ' | HP:' + "%.2f" %( poke1.get_hp () / poke1.get_hpmax ()  * 100) + '%')
       s += ( '\n +---\n' )
       s += ( '\n' )
       return s
@@ -166,7 +166,7 @@ class Arena:
       if self.accuracy ( movimento ):
          dano = self.damage ( ataque, movimento, defesa )
          porcentagem = dano / defesa.get_hp () * 100
-         print ( defesa.get_name (), 'perdeu', porcentagem, '% da sua vida' )
+         print ( defesa.get_name (), 'perdeu', "%.2f" %porcentagem, '% da sua vida' )
          defesa.set_hp ( defesa.get_hp () - dano )
 
          if numero == ataque.get_numAtk (): # Struggle
@@ -205,14 +205,10 @@ class Arena:
          segundo  = poke1
          second   = ataque1
 
-      if primeiro.esta_vivo () and segundo.esta_vivo ():
-         self.realiza_ataque ( primeiro, first, segundo )
-      else:
-         return False
-
+      self.realiza_ataque ( primeiro, first, segundo )
+     
       if primeiro.esta_vivo () and segundo.esta_vivo ():
          self.realiza_ataque ( segundo, second, primeiro )
-         return True
       else:
          return False
 
@@ -230,6 +226,7 @@ class Arena:
       os.system ( 'clear' )
 
       while ( self.turno ( self.pkmn1, self.pkmn2 ) ):
+         print('\n')
          input ( 'Pressione qualquer tecla para iniciar o proximo turno' )
 
       os.system ( 'clear' )

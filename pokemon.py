@@ -42,7 +42,8 @@ class Pokemon:
       while ( True ):
          try:
             self.hpmax = int ( input ( 'Digite a vida do pokemon: \n' ) )
-            if self.hpmax >= 1 and self.hpmax < 255:
+            if self.hpmax >= 1 and self.hpmax <= 255:
+               self.hpmax = self.calcula_status(self.hpmax, self.lvl, 50, 10)
                self.hp = self.hpmax
                break
             else:
@@ -55,6 +56,7 @@ class Pokemon:
          try:
             self.atk = int ( input ( 'Digite o ataque do pokemon: \n' ) )
             if self.atk >= 0 and self.atk <= 255:
+               self.atk = self.calcula_status(self.atk, 50, 0, 5)
                break
             else:
                print ( 'ERRO: Valor de ataque invalido' )
@@ -66,6 +68,7 @@ class Pokemon:
          try:
             self.defe = int ( input ( 'Digite a defesa do pokemon: \n' ) )
             if self.defe >= 0 and self.defe <= 255:
+               self.defe = self.calcula_status(self.defe, 50, 0, 5)
                break
             else:
                print ( 'ERRO: Valor de defesa invalido' )
@@ -77,6 +80,7 @@ class Pokemon:
          try:
             self.spd = int ( input ( 'Digite a velocidade do pokemon: \n' ) )
             if self.spd >= 0 and self.spd <= 255:
+               self.spd = self.calcula_status(self.spd, 50, 0, 5)
                break
             else:
                print ( 'ERRO: Valor de velocidade invalido' )
@@ -88,6 +92,7 @@ class Pokemon:
          try:
             self.spc = int ( input ( 'Digite o especial do pokemon: \n' ) )
             if self.spc >= 0 and self.spc <= 255:
+               self.spc = self.calcula_status(self.spc, 50, 0, 5)
                break
             else:
                print ( 'ERRO: Valor de especial invalido' )
@@ -136,6 +141,9 @@ class Pokemon:
          except ValueError:
             print ( 'ERRO: Numero invalido de ataques' )
             pass
+      print('\n')
+      self.mostra_pkmn()
+      self.mostra_lista_movimentos()
             
 
    ### Getters
@@ -243,8 +251,24 @@ class Pokemon:
          print(self.mostra_ataque( i ))
       print('\n')
 
+   # mostra se o pokemon esta vivo ou nao
    def esta_vivo ( self ):
       if self.hp > 0:
          return True
       else:
          return False
+
+   # calcula status de acordo com seu nivel e a constante base
+   def calcula_status( self, base, level, var1, var2 ):
+      return int((base+var1)*level/50 + var2)
+
+   # imprime os status do pokemon
+   def mostra_pkmn(self):
+      print(self.get_name())
+      print('Lvl: ', self.get_level())
+      print('tipo 1:', self.get_type1(), '/', 'tipo 2:', self.get_type2())
+      print('HP: ', self.get_hp())
+      print('ATK: ', self.get_atk())
+      print('DEF: ', self.get_def())
+      print('SPD: ', self.get_spd())
+      print('SPC: ', self.get_spc())

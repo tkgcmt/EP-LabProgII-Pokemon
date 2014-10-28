@@ -41,30 +41,29 @@ As relações entra as classes são facilmente visualizadas no arquivo pokemon.d
 3. Execução
 ================================================================================
 
-Para executar o programa, utilize a versão 3 do python, chamando o arquivo 
-arena.py, como a seguir
+Para executar o programa, utilize a versao 3 do python, chamando o arquivo arena.py, como a seguir
     $ python3 arena.py
 
 Se preferir, temos um arquivo para servir de entrada, chamado 'simulacao':
     $ python3 arena.py < simulacao
 
-4. Testes
+6. Testes
 ================================================================================
 
 Utilizamos o pacote unittest, para os testes de unidade. Como já foi cobrado
 seu uso durante o curso, não iremos aprofundar em questões de seu funcionamento.
 
-Os testes são realizados através da criação de arquivos de entrada, substituindo
+Os teste são realizados através da criação de arquivos de entrada, substituindo
 a entrada padrão. O próprio teste se encarrega de criar os arquivos necessários.
 
 As entradas criadas possuem valores acima dos limites superiores e inferiores.
 
-Os testes das classes pokemon e movimento são bastante objetivos, sendo simples
-comparações de valores, em sua maioria.
+Os testes das classes pokemon e movimento são bastante objetivas, sendo simples
+comparações de valores, em suma.
 
 Os testes de arena.py não realiza testes para algumas funções, pois essas
 são apenas interfaces que invocam a chamada outras funcões núcleo. Testamos 
-apenas essas funções núcleo.
+essas funções núcleo, apenas.
 
 5. Dificuldades
 ================================================================================
@@ -76,6 +75,7 @@ confiando nas rotinas de impressão.
 6. A fazer
 ================================================================================
 
- * Adicionar formulas de stats
-  - Usamos apenas os valores base como atributos dos pokémons,
-  precisamos alterá-los em função do level. (Não especificado no enunciado)
+   * Adicionar argumento na chamada do programa, para criação de 
+   Pokémons via arquivo (apenas a criação).
+
+   * Etapa 2.

@@ -1,0 +1,12 @@
+Modularização das rotinas do __init__
+ Deixaremos para os setters a verificação dos valores inseridos.
+ Para tanto, criamos setters protegidos - na forma __method() - para ex
+ explicitar a intenção do seu uso somente neste escopo.
+ Retirado dos testes esses métodos 'privadas'.
+Mudança de nomes
+ Não altera o uso, apenas a implementação. Alguns nomes de funções foram 
+ alteradas para manter a consistencia com os nomes dos atributos de interesse:
+   get_def() é agora get_defe() - devolve o valor de self.defe de um Objeto do 
+ tipo Pokemon
+   get_level() é agora get_lvl() - devolve o valor de self.lvl de um Objeto do 
+ tipo Pokemon

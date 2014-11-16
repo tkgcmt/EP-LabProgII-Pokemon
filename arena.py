@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-'''
-|Contribuidores              | No. USP |
-|----------------------------|---------|
-|Christian M. T. Takagi      | 7136971 |
-|Cinthia M Tanaka            | 5649479 |
-|Daniel A. Nagata            | 7278048 |
-|Fernando T. Tanaka          | 6920230 |
-
-Disciplina: Laboratório de Programação II       
-Prof. Alfredo Goldman
-Exercicio Programa - Etapa 1                    
-Arquivo: arena.py
-'''
+# |Contribuidores              | No. USP |
+# |----------------------------|---------|
+# |Christian M. T. Takagi      | 7136971 |
+# |Cinthia M Tanaka            | 5649479 |
+# |Daniel A. Nagata            | 7278048 |
+# |Fernando T. Tanaka          | 6920230 |
+# ------------------------------------------------------------------------------
+# Disciplina: Laboratório de Programação II       
+# Prof. Alfredo Goldman
+# Exercicio Programa - Etapa 2
+# Arquivo: arena.py
+# ------------------------------------------------------------------------------
 
 import pokemon
 import random
@@ -37,14 +36,14 @@ class Arena:
       [ 1.0,1.0,2.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,2.0,0.5,0.5,1.0,1.0,0.5 ], # 12- Eletr
       [ 1.0,2.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.5,1.0,1.0 ], # 13- Psychc
       [ 1.0,1.0,2.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,0.5,2.0,1.0,1.0,0.5,2.0 ], # 14- Ice
-      [ 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0 ]  # 15- Dragon
+     # [ 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0 ]  # 15- Dragon
                 ]
 
 
    def base_damage ( self, pokeA, atk, pokeB ):
-      termo1 = ( 2 * pokeA.get_level () + 10 ) / 250.0
+      termo1 = ( 2 * pokeA.get_lvl () + 10 ) / 250.0
       if atk.get_type() >= 0 and atk.get_type() <= 8:
-         termo2 = pokeA.get_atk () / pokeB.get_def () * atk.get_power ()
+         termo2 = pokeA.get_atk () / pokeB.get_defe () * atk.get_power ()
       else:
          termo2 = pokeA.get_spc () / pokeB.get_spc () * atk.get_power ()
       return ( termo1 * termo2 + 2 )
@@ -73,7 +72,7 @@ class Arena:
       chance = pokemon.get_spd () / 512
       rand   = random.random ()
       if rand <= chance:
-         lvl = pokemon.get_level ()
+         lvl = pokemon.get_lvl ()
          print ( 'Ataque critico' )
          return ( ( 2 * lvl ) / ( lvl + 5 ) )
       else:

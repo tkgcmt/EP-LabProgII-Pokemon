@@ -1,31 +1,28 @@
 #!/usr/bin/python3
-'''
-|Contribuidores              | No. USP |
-|----------------------------|---------|
-|Christian M. T. Takagi      | 7136971 |
-|Cinthia M Tanaka            | 5649479 |
-|Daniel A. Nagata            | 7278048 |
-|Fernando T. Tanaka          | 6920230 |
-
-Disciplina: Laboratório de Programação II       
-Prof. Alfredo Goldman
-Exercicio Programa - Etapa 1                    
-Arquivo: teste_movimento.py
-'''
+# |Contribuidores              | No. USP |
+# |----------------------------|---------|
+# |Christian M. T. Takagi      | 7136971 |
+# |Cinthia M Tanaka            | 5649479 |
+# |Daniel A. Nagata            | 7278048 |
+# |Fernando T. Tanaka          | 6920230 |
+#-------------------------------------------------------------------------------
+# Disciplina: Laboratório de Programação II       
+# Prof. Alfredo Goldman
+# Exercicio Programa - Etapa 2
+# Arquivo: teste_movimento.py
+#-------------------------------------------------------------------------------
 
 import movimento as mov
 import unittest as uni
 import sys
-import os
 
 
 # Rotina para testar objetos do tipo Movimento()
 class TestadorMovimento(uni.TestCase):
    def setUp(self):
-      if os.path.isfile('in_mov') == False:
-         # Redireciona arq para stdin
-         with open('in_mov', 'w+') as arq:
-            arq.write('blaster\n-1\n15\n1\n-10\n200\n90\n-50\n256\n50\n-40\n62\n40\n')
+      # Redireciona arq para stdin
+      with open('in_mov', 'w+') as arq:
+         arq.write('blaster\n-1\n16\n1\n-10\n200\n90\n-50\n256\n50\n-40\n62\n40\n')
       with open('in_mov', 'r') as sys.stdin:
          self.blaster = mov.Movimento()
 
@@ -49,44 +46,16 @@ class TestadorMovimento(uni.TestCase):
 
 
    # Testa se os setters estao funcionando corretamente
-   # set_power
-   def testa_set_power_infe(self):
-      temp = self.blaster.get_power()
-      self.blaster.set_power(-1)
-      self.assertEqual(temp, self.blaster.get_power())
-   def testa_set_power_supe(self):
-      temp = self.blaster.get_power()
-      self.blaster.set_power(256)
-      self.assertEqual(temp, self.blaster.get_power())
-   def testa_set_power_valido(self):
-      temp = self.blaster.get_power()
-      self.blaster.set_power(70)
-      self.assertEqual(70, self.blaster.get_power())
-
-   # set_ppmax
-   def testa_set_power_infe(self):
-      temp = self.blaster.get_ppmax()
-      self.blaster.set_ppmax(-1)
-      self.assertEqual(temp, self.blaster.get_ppmax())
-   def testa_set_power_supe(self):
-      temp = self.blaster.get_ppmax()
-      self.blaster.set_ppmax(62)
-      self.assertEqual(temp, self.blaster.get_ppmax())
-   def testa_set_power_valido(self):
-      temp = self.blaster.get_ppmax()
-      self.blaster.set_ppmax(30)
-      self.assertEqual(30, self.blaster.get_ppmax())
-
    # set_pp
-   def testa_set_power_infe(self):
+   def testa_set_pp_infe(self):
       temp = self.blaster.get_pp()
       self.blaster.set_pp(-1)
       self.assertEqual(temp, self.blaster.get_pp())
-   def testa_set_power_supe(self):
+   def testa_set_pp_supe(self):
       temp = self.blaster.get_pp()
       self.blaster.set_pp(70)
       self.assertEqual(temp, self.blaster.get_pp())
-   def testa_set_power_valido(self):
+   def testa_set_pp_valido(self):
       temp = self.blaster.get_pp()
       self.blaster.set_pp(15)
       self.assertEqual(15, self.blaster.get_pp())
@@ -113,4 +82,3 @@ class TestadorMovimento(uni.TestCase):
       
 if __name__ == '__main__':
    uni.main(buffer=True)
-   os.remove("in_mov")

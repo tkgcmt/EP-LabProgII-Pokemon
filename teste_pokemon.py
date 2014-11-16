@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-'''
-|Contribuidores              | No. USP |
-|----------------------------|---------|
-|Christian M. T. Takagi      | 7136971 |
-|Cinthia M Tanaka            | 5649479 |
-|Daniel A. Nagata            | 7278048 |
-|Fernando T. Tanaka          | 6920230 |
-
-Disciplina: Laboratório de Programação II       
-Prof. Alfredo Goldman
-Exercicio Programa - Etapa 1                    
-Arquivo: teste_pokemon.py
-'''
+# |Contribuidores              | No. USP |
+# |----------------------------|---------|
+# |Christian M. T. Takagi      | 7136971 |
+# |Cinthia M Tanaka            | 5649479 |
+# |Daniel A. Nagata            | 7278048 |
+# |Fernando T. Tanaka          | 6920230 |
+# ------------------------------------------------------------------------------
+# Disciplina: Laboratório de Programação II       
+# Prof. Alfredo Goldman
+# Exercicio Programa - Etapa 2                    
+# Arquivo: teste_pokemon.py
+# ------------------------------------------------------------------------------
 
 import pokemon as pok
 import unittest as uni
@@ -23,7 +22,7 @@ class TestadorPokemon(uni.TestCase):
    def setUp(self):
       if os.path.isfile('in_missingno') == False:
          arq = open('in_missingno', 'w+')
-         arq.write('MissingNo\n-1\n101\n50\n-1\n256\n1\n-1\n256\n2\n'
+         arq.write('MissingNo\n-1\n101\n51\n-1\n256\n1\n-1\n256\n2\n'
                 '-1\n256\n3\n-1\n256\n4\n-1\n256\n5\n'
                 '-1\n17\n6\n-1\n17\n7\n0')
       with open('in_missingno', 'r') as arq:
@@ -47,16 +46,16 @@ class TestadorPokemon(uni.TestCase):
    # testa os getters.
    def testa_get_name(self):
       self.assertEqual(self.missingno.name, self.missingno.get_name())
-   def testa_get_level(self):
-      self.assertEqual(self.missingno.lvl, self.missingno.get_level())
+   def testa_get_lvl(self):
+      self.assertEqual(self.missingno.lvl, self.missingno.get_lvl())
    def testa_get_hpmax(self):
       self.assertEqual(self.missingno.hpmax, self.missingno.get_hpmax())
    def testa_get_hp(self):
       self.assertEqual(self.missingno.hp, self.missingno.get_hp())
    def testa_get_atk(self):
       self.assertEqual(self.missingno.atk, self.missingno.get_atk())
-   def testa_get_def(self):
-      self.assertEqual(self.missingno.defe, self.missingno.get_def())
+   def testa_get_defe(self):
+      self.assertEqual(self.missingno.defe, self.missingno.get_defe())
    def testa_get_spd(self):
       self.assertEqual(self.missingno.spd, self.missingno.get_spd())
    def testa_get_spc(self):
@@ -94,7 +93,6 @@ class TestadorPokemon(uni.TestCase):
       self.assertEqual(True, self.missingno.esta_vivo())
       self.missingno.set_hp(0)
       self.assertEqual(False, self.missingno.esta_vivo())
-
 
 if __name__ == '__main__':
    uni.main( buffer=True)

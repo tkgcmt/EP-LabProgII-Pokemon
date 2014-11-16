@@ -1,0 +1,9 @@
+# Ignora arquivos criados pelo VIM
+*.swp
+
+# Ignora pasta de cache do python
+__pycache__/
+
+# Ignora arquivos criados pelos programa
+in_*
+simulacao

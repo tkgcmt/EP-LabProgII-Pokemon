@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-'''
-|Contribuidores              | No. USP |
-|----------------------------|---------|
-|Christian M. T. Takagi      | 7136971 |
-|Cinthia M Tanaka            | 5649479 |
-|Daniel A. Nagata            | 7278048 |
-|Fernando T. Tanaka          | 6920230 |
-
-Disciplina: Laboratório de Programação II       
-Prof. Alfredo Goldman
-Exercicio Programa - Etapa 1                    
-Arquivo: teste_arena.py
-'''
+# |Contribuidores              | No. USP |
+# |----------------------------|---------|
+# |Christian M. T. Takagi      | 7136971 |
+# |Cinthia M Tanaka            | 5649479 |
+# |Daniel A. Nagata            | 7278048 |
+# |Fernando T. Tanaka          | 6920230 |
+#-------------------------------------------------------------------------------
+# Disciplina: Laboratório de Programação II       
+# Prof. Alfredo Goldman
+# Exercicio Programa - Etapa 2
+# Arquivo: teste_arena.py
+#-------------------------------------------------------------------------------
 
 import arena as are
 import pokemon as pok
@@ -46,13 +45,13 @@ class TestadorArena(uni.TestCase):
    def testa_base_damage_atk(self):
       mov = self.mew.get_movimento(1)
       x = self.a.base_damage(self.mew, mov, self.cha)
-      y = (( 2 * self.mew.get_level () + 10 ) / 250.0)
-      y = y * (self.mew.get_atk () / self.cha.get_def () * mov.get_power ()) + 2
+      y = (( 2 * self.mew.get_lvl () + 10 ) / 250.0)
+      y = y * (self.mew.get_atk () / self.cha.get_defe () * mov.get_power ()) + 2
       self.assertAlmostEqual(x, y, 2)
    def testa_base_damage_spc(self):
       mov = self.cha.get_movimento(0)
       x = self.a.base_damage(self.cha, mov, self.mew)
-      y = (( 2 * self.cha.get_level () + 10 ) / 250.0) 
+      y = (( 2 * self.cha.get_lvl () + 10 ) / 250.0) 
       y = y * (self.cha.get_spc () / self.mew.get_spc () * mov.get_power ()) + 2
       self.assertAlmostEqual(x, y, 2)
 
@@ -117,12 +116,12 @@ class TestadorArena(uni.TestCase):
                '\n' +
                '                              +---\n' +
                '                              | Nome:' + self.cha.get_name () + '\n' +
-               '                              | HP:' + str((self.cha.get_hp ()-i) / self.cha.get_hpmax ()  * 100) + '%' + '\n' +
+               '                              | HP:' + "%.2f" %((self.cha.get_hp ()-i) / self.cha.get_hpmax ()  * 100) + '%' + '\n' +
                '                              +---\n' +
                '\n' +
                ' +---\n' +
                ' | Nome:' + self.mew.get_name () +'\n' +
-               ' | HP:' + str(( self.mew.get_hp ()-i) / self.mew.get_hpmax ()  * 100) + '%' + '\n' +
+               ' | HP:' + "%.2f" %(( self.mew.get_hp ()-i) / self.mew.get_hpmax ()  * 100) + '%' + '\n' +
                ' +---\n' +
                '\n' )
          self.cha.set_hp(self.cha.get_hp() - i)

@@ -1,0 +1,11 @@
+Para o funcionamento correto do programa, verifique a presença dos seguintes
+pacotes para o python3:
+
+   * unittest # Para realizar os testes
+   * flask # Para a criação do web framework
+
+Presentes na instalação padrão do python3:
+   * random 
+   * sys 
+   * os 
+

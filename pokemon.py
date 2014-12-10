@@ -31,7 +31,7 @@ class Pokemon:
          self.lvl = 0
          try:
             temp = int ( input ( 'Digite o level do pokemon: \n' ) )
-            self.__set_lvl(temp)
+            self.set_lvl(temp)
             if self.lvl:
                break
          except ValueError:
@@ -42,7 +42,7 @@ class Pokemon:
          self.hpmax = 0
          try:
             temp = int ( input ( 'Digite a vida do pokemon: \n' ) )
-            self.__set_hpmax(temp)
+            self.set_hpmax(temp)
             if self.hpmax: 
                self.hpmax = self.calcula_status(self.hpmax, self.lvl, 50, 10)
                self.hp = self.hpmax
@@ -55,7 +55,7 @@ class Pokemon:
          self.atk = 0
          try:
             temp = int ( input ( 'Digite o ataque do pokemon: \n' ) )
-            self.__set_atk(temp) 
+            self.set_atk(temp) 
             if self.atk :
                self.atk = self.calcula_status(self.atk, 50, 0, 5)
                break
@@ -67,7 +67,7 @@ class Pokemon:
          self.defe = 0
          try:
             temp = int ( input ( 'Digite a defesa do pokemon: \n' ) )
-            self.__set_defe(temp) 
+            self.set_defe(temp) 
             if self.defe :
                self.defe = self.calcula_status(self.defe, 50, 0, 5)
                break
@@ -79,7 +79,7 @@ class Pokemon:
          self.spd = 0
          try:
             temp = int ( input ( 'Digite a velocidade do pokemon: \n' ) )
-            self.__set_spd(temp) 
+            self.set_spd(temp) 
             if self.spd :
                self.spd = self.calcula_status(self.spd, 50, 0, 5)
                break
@@ -91,7 +91,7 @@ class Pokemon:
          self.spc = 0
          try:
             temp = int ( input ( 'Digite o especial do pokemon: \n' ) )
-            self.__set_spc(temp) 
+            self.set_spc(temp) 
             if self.spc :
                self.spc = self.calcula_status(self.spc, 50, 0, 5)
                break
@@ -103,7 +103,7 @@ class Pokemon:
          self.type1 = 17
          try:
             temp = int ( input ( 'Digite o tipo 1 do pokemon: \n' ) )
-            self.__set_type1(temp)
+            self.set_type1(temp)
             if self.type1 < 17:
                break
          except ValueError:
@@ -114,7 +114,7 @@ class Pokemon:
          self.type2 = 17
          try:
             temp = input ( 'Digite o tipo 2 do pokemon: \n' )
-            self.__set_type2(temp)
+            self.set_type2(temp)
             if self.type2 < 17:
                break
          except ValueError:
@@ -126,10 +126,10 @@ class Pokemon:
             self.numAtk = int ( input ( 'Digite o numero de ataques do pokemon: \n'))
             if self.numAtk >= 0 and self.numAtk <= 4:
                self.moveset = []
-               for i in range ( self.numAtk ):
-                  print ( '--- Ataque', i, '---' )
-                  self.moveset.append ( mov.Movimento () )
                self.moveset.append ( self.struggle )
+               for i in range ( self.numAtk ):
+                  print ( '--- Ataque', i + 1, '---' )
+                  self.moveset.append ( mov.Movimento () )
                break
             else:
                print ( 'ERRO: Numero invalido de ataques' )
@@ -180,69 +180,77 @@ class Pokemon:
       
       
    ### Setters
+
+   def set_name ( self, nome ):
+      self.name = nome;
+
+   def set_lvl ( self, level ):
+      if level >= 1 and level <= 100:
+         self.lvl = level
+      else:
+         print( 'ERRO: Level invalido. Dom=[1,100]' )
+
    def set_hp ( self, vida ):
       if vida >= 0:
-         if vida <= self.hpmax:
+         if vida <= self.get_hpmax ():
             self.hp = vida
          else:
             self.hp = self.hpmax
       else:
          self.hp = 0
 
-   def __set_lvl ( self, level ):
-      if level >= 1 and level <= 100:
-         self.lvl = level
-      else:
-         print( 'ERRO: Level invalido. Dom=[1,255]' )
-
-   def __set_hpmax ( self, vida ):
+   def set_hpmax ( self, vida ):
       if vida >= 1 and vida <= 255:
          self.hpmax = vida
       else:
          print( 'ERRO: Vida invalido. Dom=[1,255]' )
 
-   def __set_atk ( self, ataque ):
+   def set_atk ( self, ataque ):
       if ataque >= 1 and ataque <= 255:
          self.atk = ataque
       else:
          print( 'ERRO: Ataque invalido. Dom=[1,255]' )
 
-   def __set_defe ( self, defesa ):
+   def set_defe ( self, defesa ):
       if defesa >= 1 and defesa <= 255:
          self.defe = defesa
       else:
          print( 'ERRO: Defesa invalido. Dom=[1,255]' )
 
-   def __set_spd ( self, velocidade ):
+   def set_spd ( self, velocidade ):
       if velocidade >= 1 and velocidade <= 255:
          self.spd = velocidade
       else:
          print( 'ERRO: Velocidade invalido. Dom=[1,255]' )
 
-   def __set_spc ( self, especial ):
+   def set_spc ( self, especial ):
       if especial >= 1 and especial <= 255:
          self.spc = especial
       else:
          print ( 'ERRO: Especial invalido. Dom=[1,255]' )
          return False
 
-   def __set_type1 ( self, tipo ):
+   def set_type1 ( self, tipo ):
       if tipo >= 0 and tipo <= 15:
          self.type1 = tipo
       else:
          print ( 'ERRO: Tipo 1 invalido. Dom=[0,15]' )
          return False
 
-   def __set_type2 ( self, tipo ):
+   def set_type2 ( self, tipo ):
       if tipo == '':
          self.type2 = 16
       else:
          tipo = int(tipo)
-         if tipo >= 0 and tipo <= 15:
+         if tipo >= 0 and tipo <= 16:
             self.type2 = tipo
          else:
-            print ( 'ERRO: Tipo 2 invalido. Dom=[0,15]' )
+            print ( 'ERRO: Tipo 2 invalido. Dom=[0,16]' )
             return False
+
+   def set_numAtk ( self, num ):
+      if num >= 0 and num <= 4:
+         self.numAtk = num
          
    ### Metodos
    def possui_ataques ( self ):
@@ -263,7 +271,7 @@ class Pokemon:
    def mostra_lista_movimentos ( self ):
       print ( self.name )
       for i in range ( self.numAtk ):
-         print(self.mostra_ataque( i ))
+         print(self.mostra_ataque( i + 1 ))
       print('\n')
 
    # mostra se o pokemon esta vivo ou nao
@@ -287,3 +295,6 @@ class Pokemon:
       print('DEF: ', self.get_defe())
       print('SPD: ', self.get_spd())
       print('SPC: ', self.get_spc())
+
+   def cria_moveset ( self ):
+      self.moveset = []

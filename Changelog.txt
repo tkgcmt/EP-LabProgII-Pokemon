@@ -1,0 +1,19 @@
+Changelog
+    - Alterei bibxml.cria_pokemon() - agora funciona corretamente.
+    - cliente.comeca_batalha() completado
+    - servidor StartBattle.post() falta tratar de erros, fora isso, completo.
+
+
+A fazer
+================================================================================
+
+   * Completar a execução da web API (modo servidor)
+   * Cuidar dos erros, quando valida() falha. i.e. error 404, etc.
+   * Refatorar o código e deixar o código com um única linguagem (nomes de
+        métodos e atributos somente em en-us ou pt-br)
+   * Adicionar a opção de se criar um obj Pokemon() através de um arquivo.
+        - def __init__(self, entrada = None)
+            if entrada != None: redireciona_std_in #ver teste_*.py
+    
+    
+   * Etapa 3.

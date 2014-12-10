@@ -20,7 +20,7 @@ class Movimento:
          self.type = 17
          try:
             temp = int ( input ( 'Digite o tipo do ataque: \n' ) )
-            self.__set_type(temp)
+            self.set_type(temp)
             if self.type < 17:
                break
          except ValueError:
@@ -31,7 +31,7 @@ class Movimento:
          self.accu = 0
          try:
             temp = int ( input ( 'Digite a acuracia do ataque: \n' ) )
-            self.__set_accu(temp)
+            self.set_accu(temp)
             if (self.accu):
                break
             else:
@@ -44,7 +44,7 @@ class Movimento:
          self.power = 0
          try:
             temp = int ( input ( 'Digite o poder do ataque: \n' ) ) 
-            self.__set_power(temp)
+            self.set_power(temp)
             if self.power:
                break
             else:
@@ -58,7 +58,7 @@ class Movimento:
          self.ppmax = 0
          try:
             temp = int ( input ( 'Digite quantos power points: \n' ) )
-            self.__set_ppmax(temp)
+            self.set_ppmax(temp)
             if self.ppmax:
                break
             else:
@@ -88,25 +88,28 @@ class Movimento:
       return self.pp
 
    ### Setters - se o novo valor for invalido, mantem o valor anterior
-   def __set_type( self, tipo):
+   def set_name ( self, nome ):
+      self.name = nome
+
+   def set_type( self, tipo):
       if tipo >= 0 and tipo <= 15:
          self.type = tipo
       else:
          print ( 'ERRO: Tipo invalido. Dom=[0,15]' )
 
-   def __set_accu( self, acuracia):
+   def set_accu( self, acuracia):
       if acuracia >= 0 and acuracia <= 100:
          self.accu = acuracia
       else:
          print ( 'ERRO: invalido. Dom=[0,100]' )
 
-   def __set_power ( self, poder ):
+   def set_power ( self, poder ):
       if poder >= 0 and poder <= 100:
          self.power = poder
       else:
          print ( 'ERRO: invalido. Dom=[0,100]' )
          
-   def __set_ppmax ( self, pontos ):
+   def set_ppmax ( self, pontos ):
       if pontos >= 0 and pontos <= 61:
          self.ppmax = pontos
       else:

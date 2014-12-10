@@ -12,7 +12,7 @@
 # Arquivo: arena.py
 # ------------------------------------------------------------------------------
 
-import pokemon
+import bibxml 
 import random
 import os
 
@@ -218,11 +218,22 @@ class Arena:
 
    def main( self ):
       print ( ' Player 1 ' )
-      self.pkmn1 = pokemon.Pokemon ()
+      self.pkmn1 = bibxml.pokemon.Pokemon ()
+
+      xml_pkmn1 = bibxml.xml_class().cliente_gera_xml(self.pkmn1)
+      print(bibxml.xml_class().valida(xml_pkmn1))
       os.system ( 'clear' )
+
       print ( ' Player 2 ' )
-      self.pkmn2 = pokemon.Pokemon ()
+      self.pkmn2 = bibxml.pokemon.Pokemon ()
+
+      xml_pkmn2 = bibxml.xml_class().cliente_gera_xml(self.pkmn2)
+      print(bibxml.xml_class().valida(xml_pkmn1))
       os.system ( 'clear' )
+
+      with open('lala.xml', 'w+') as lala:
+        lala.write(xml_pkmn1 + xml_pkmn2)
+        print(bibxml.xml_class().valida(lala.read()))
 
       while ( self.turno ( self.pkmn1, self.pkmn2 ) ):
          print('\n')

@@ -16,56 +16,67 @@ from flask.ext.restful import reqparse, abort, Api, Resource
 from bibxml import xml_class
 import arena as are
 from pokemon import Pokemon
-import sys
+import sys, os
+
+# Usamos uma divertida convencao de nomes aqui: RED = servidor, BLUE = cliente
 
 app = Flask(__name__)
 api = Api(app)
 parser = xml_class()
+ERROR_400 = "ERROR 400 - BAD REQUEST\nCliente, seu XML nao passou a validacao\n"
+ERROR_404 = ("ERROR 404 - NOT FOUND\nNao foi possivel encontrar o endereco" +
+             "especificado\n")
 
-# Contem os metodos da batalha
-class StartBattle( Resource ):
-    def not_found( error=None ):
-        message = {
-                'status': 404,
-                'message': 'Not Found: ' + request.url, }
-        resp = jsonify(message)
-        resp.status_code = 404
-        return resp
+#class Battle(Resource):
+BLUE = RED = None
+xml_BLUE = xml_RED = battle_state = ""
 
-    def post( self ):
-        # Criar os pokemons para usar na simulacao
-        self.xml_pkmn_cli = str( request.data )[2:-1]
-        print( self.xml_pkmn_cli )
-        if parser.valida( self.xml_pkmn_cli ):
-            self.pkmn_cli = parser.cria_pokemon( request.data )
-            self.pkmn_svr = Pokemon()
-            self.xml_pkmn_svr = parser.cliente_gera_xml( self.pkmn_svr )
-            battle_state = self.xml_pkmn_svr + self.xml_pkmn_cli
-            return Response( battle_state, mimetype="text/xml" )
-        else:
-            return not_found()
-            
-class Move( Resource ):
+# Recebe a string de um xml contendo o pokemon do cliente e devolve
+# uma string xml contendo dois pokemons, do cliente e do servidor.
+@app.route('/battle', methods = ['POST'])
+def inicia_batalha():
+    global RED, BLUE, xml_RED, xml_BLUE, battle_state
+    # Criar os pokemons para usar na simulacao
+    xml_BLUE = str(request.data)[2:-1]
+    print("&&&&&&&&&&&&&&&&&&&&&\n", xml_BLUE)
+    # Trata do erro se a validacao nao foi bem sucedida.
+    if parser.valida( xml_BLUE):
+        BLUE = parser.cria_pokemon( request.data )
+        if os.path.isfile('in_MEW') == False:
+            with open('in_MEW', 'w+') as arq:
+                 arq.write('Mew\n50\n100\n100\n100\n100\n100\n13\n\n4\n'
+                         'Thunderbolt\n12\n100\n95\n15\n'
+                         'Rock_Slide\n5\n90\n75\n10\n'
+                         'Earthquake\n4\n100\n100\n10\n'
+                         'Bubblebeam\n10\n100\n65\n20\n')
+        with open('in_MEW', 'r') as sys.stdin:
+            RED = Pokemon()
 
-    def aborta_ataque_nao_existente( self, id, moveset ):
-        if id not in moveset:
-            abort( 404, message="Ataque {} nao existe".format(id) )
+        xml_RED = parser.cliente_gera_xml( RED )
+        battle_state = parser.servidor_gera_xml(RED, BLUE) 
+        return Response( battle_state, mimetype="text/xml" )
+    else:
+        abort( 400, message=ERROR_400  )
 
-    def post( self, id ):
-        with open( 'entrada1.xml', 'r' ) as temp_xml:
-            tree = bibxml.cria_arvore( temp_xml )
-            self.aborta_ataque_nao_existente( id, tree.pokemon[0].attacks )
-            print( 'PP do ataque antes: ', tree.pokemon[0].attacks[id]["power_points"] )
-            tree.pokemon[0].attacks[id]["power_points"] -= 1
-            print( 'PP do ataque depois: ', tree.pokemon[0].attacks[id]["power_points"] )
-            body = temp_xml.read()
-        # battle_state = open( 'battle_state.xml', 'w+' )
-        # battle_state.write( body )
-        return Response( battle_state, mimetype='text/xml' )
+# Trata erro se o parametro id nao corresponder.
+def aborta_ataque_nao_existente( id, moveset ):
+    if id < 0 or id > len(moveset):
+        abort( 404, message="Ataque {} nao existe".format(id) )
 
-# Define as rotas do API
-api.add_resource( StartBattle, '/battle' )
-api.add_resource( Move, '/battle/attack/<int:id>' )
+# Recebe id como indice do ataque a ser usado pelo cliente e devolve
+# uma string xml atualizada com o resultado do confronto deste turno.
+# Ainda em teste
+@app.route('/battle/attack/<int:id>', methods = ['POST'])
+def recebe_ataque( id ):
+    global RED, BLUE, xml_RED, xml_BLUE, battle_state
+    tree = parser.cria_arvore(battle_state)
+    print("\nCliente\n", tree.pokemon[1].attacks[id]['name'])
+    aborta_ataque_nao_existente( id, tree.pokemon[1].attacks )
+    # Testa atualização do ataque
+    print( 'PP do ataque antes: ', tree.pokemon[0].attacks[id]["power_points"] )
+    tree.pokemon[0].attacks[id]["power_points"] -= 1
+    print( 'PP do ataque depois: ', tree.pokemon[0].attacks[id]["power_points"] )
+    return Response( '<xml></xml>', mimetype='text/xml' )
 
 
 if __name__ == '__main__':

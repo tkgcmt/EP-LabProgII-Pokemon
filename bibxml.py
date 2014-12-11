@@ -79,15 +79,16 @@ class xml_class():
       #doc = etree.ElementTree ( xml )
       self.pokemon_gera_xml ( xml, pokeS )
       self.pokemon_gera_xml ( xml, pokeC )
-      return etree.tostring ( xml, encoding = 'unicode', pretty_print = True )
+      return etree.tostring ( xml, encoding = 'unicode', pretty_print = False )
 
    # Valida uma string xml a partir de um arquivo schema
    def valida ( self, xml_string ):
       
       # Salva a string em arquivo
+      '''
       with open("output.xml",'w') as f:
          f.write(xml_string)
-      
+      '''
       schema = etree.XMLSchema(etree.parse(self.schema_file))
       xmlparser = etree.XMLParser(schema=schema)
       
@@ -108,6 +109,7 @@ class xml_class():
 
    # Imprime informacoes essenciais a partir da arvore
    def imprime_basico ( self, tree ):
+      print("HELLO\n\n", tree.get_value , "\n\n\n")
       for k in range(len(tree.pokemon)):
          print("\n")
          print(tree.pokemon[k]["name"].text, ": lvl ",tree.pokemon[k]["level"].text)
@@ -117,23 +119,31 @@ class xml_class():
             tree.pokemon[k].attacks[i]["name"])
             print("pp left: ", tree.pokemon[k].attacks[i]["power_points"])
 
-   def atualiza_xml_para_pokemon ( self, elem, poke ):
-      attributes = elem.find ( 'attributes' )
-      hp         = int ( attributes.find ( 'health' ).text )
+   # Atualiza atributos de poke com as informacoes da arvore xml elem.
+   def atualiza_poke_xml ( self, elem, poke ):
+      attributes = elem.pokemon[ 'attributes']
+      hp = int ( attributes[ 'health' ].text )
       poke.set_hp ( hp )
 
-      attacks = elem.findall ( 'attacks' )
+      attacks = elem.pokemon[ 'attacks' ]
       for i in range ( len ( attacks ) ):
          atk_elem = attacks[i]
-         nid = int ( atk_elem.find('id').text )
-         pp  = int ( atk_elem.find('power_points').text )
+         nid = int ( atk_elem['id'].text )
+         pp  = int ( atk_elem['power_points'].text )
          atk_mov = poke.get_movimento ( nid )
          atk_mov.set_pp ( pp )
 
-   def atualiza_xml_para_batalha ( self, xml, pokeS, pokeC ):
-      list_pokemon = xml.findall ( 'pokemon' )
-      self.atualiza_pokemon ( list_pokemon[0], pokeS )
-      self.atualiza_pokemon ( list_pokemon[1], pokeC )
+   # Atualiza informacoes de xml com os atributos de poke.
+   def atualiza_xml_poke ( self, poke, xml):
+      attributes = elem.pokemon[ 'attributes']
+      attributes[ 'health' ].text = str( poke.get_hp() ) 
+
+      attacks = elem.pokemon[ 'attacks' ]
+      for i in range ( len ( attacks ) ):
+         atk_elem = attacks[i]
+         mov = poke.get_movimento ( i )
+         atk_elem['power_points'].text = mov.get_pp()
+
 
    def cria_pokemon ( self, my_xml ):
       elem_xml = objectify.fromstring(my_xml)

@@ -1,4 +1,10 @@
-Changelog
+Changelog 11/12/2014 16:19
+    - StartBattle.post() completado.
+    - Removido o uso de Restful-extension (causava confusão no código)
+    - Corrigido bug na geração do battle_state a ser entregue (não continha nó raiz)
+    - O servidor agora gerará automaticamente um Pokemon para testes (MEW)
+
+Changelog 10/12/2014 03:43
     - Alterei bibxml.cria_pokemon() - agora funciona corretamente.
     - cliente.comeca_batalha() completado
     - servidor StartBattle.post() falta tratar de erros, fora isso, completo.
@@ -8,12 +14,7 @@ A fazer
 ================================================================================
 
    * Completar a execução da web API (modo servidor)
-   * Cuidar dos erros, quando valida() falha. i.e. error 404, etc.
    * Refatorar o código e deixar o código com um única linguagem (nomes de
-        métodos e atributos somente em en-us ou pt-br)
-   * Adicionar a opção de se criar um obj Pokemon() através de um arquivo.
-        - def __init__(self, entrada = None)
-            if entrada != None: redireciona_std_in #ver teste_*.py
-    
+        métodos e atributos somente em en-us ou pt-br)    
     
    * Etapa 3.

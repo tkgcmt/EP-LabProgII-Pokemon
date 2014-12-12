@@ -12,7 +12,6 @@
 # Arquivo: app.py
 # ------------------------------------------------------------------------------
 from flask import Flask, Response, request
-from flask.ext.restful import reqparse, abort, Api, Resource
 from bibxml import xml_class
 from arena import Arena
 from pokemon import Pokemon
@@ -56,14 +55,14 @@ def inicia_batalha():
         return Response( battle_state, mimetype="text/xml" )
 
     else:
-        abort( 400, message=ERROR_400  )
+        Response(ERROR_400, mimetype="text"), 400
 
 
 
 # Trata erro se o parametro id nao corresponder.
 def aborta_ataque_nao_existente( id, moveset ):
     if id < 0 or id > len(moveset):
-        abort( 404, message="Ataque {} nao existe".format(id) )
+        Response("Ataque {} nao existe".format(id), mimetype="text"), 404
 
 
 # Recebe id como indice do ataque a ser usado pelo cliente e devolve

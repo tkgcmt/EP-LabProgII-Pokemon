@@ -22,6 +22,8 @@ wiki bulbapedia.bulbagarden.net
 
 Para mais informações sobre o funcionamento, leia o enunciado em pdf.
 
+As dependências de pacotes são vizualidas no arquivo requirements.txt
+
 2. Estrutura de Dados
 ================================================================================
 

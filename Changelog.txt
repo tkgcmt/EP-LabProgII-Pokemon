@@ -1,4 +1,6 @@
-Chengelog 12/12/2014 01:46
+Changelog 12/12/2014 14:42
+    - Corrigido remoção do restful. Não há mais import desse pacote.
+Changelog 12/12/2014 01:46
     - Classes em cliente.py e app.py foram removidos.
     - Completado a interação entre servidor e cliente.
     - Adicionado métodos para leitura a partir de arquivo.

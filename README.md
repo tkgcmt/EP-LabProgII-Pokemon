@@ -49,12 +49,22 @@ As relações entra as classes são facilmente visualizadas no arquivo pokemon.d
 3. Execução
 ================================================================================
 
-Para executar o programa, utilize a versao 3 do python, chamando o arquivo app.py,
-para iniciar o programa em modo servidor:
-    $ python3 app.py
+Para executar o programa, utilize a versao 3 do python.
+Para iniciar o programa em modo servidor:
+    $ python3 EP_Etapa2.py --server
 
-Para executar o programa em modo cliente, execute-o atráves do arquivo cliente.py:
-    $ python3 cliente.py
+Para executar o programa em modo cliente:
+    $ python3 EP_Etapa2.py --client
+
+
+Para usar um arquivo para inicializar o Pokemon do servidor:
+    $ python3 EP_Etapa2.py --server --auto [input_file]
+
+Para usar um arquivo para inicializar o Pokemon do servidor:
+    $ python3 EP_Etapa2.py --server --auto [input_file]
+
+Onde input_file é o nome do arquio a ser usado.
+
 
 4. Testes
 ================================================================================
@@ -76,22 +86,9 @@ essas funções núcleo, apenas.
 
 Não fizemos testes de unidade para a Etapa2
 
-Para testar a parte funcional do programa, inicialize o app.py e em seguida
-rode o cliente.py, como mencionado no item anterior.
-
-Deve ser possível postar um arquivo xml, a partir do cliente e recebê-lo no
-servidor.
-
-O arquivo teste.py testa algumas funcionalidades da interação cliente x servidor.
-Rode-o, com 
-    $ python3 teste.py < MUK
 
 5. Dificuldades
 ================================================================================
-
-Não conseguimos entregar um código funcional para a Etapa2 devido a extrema 
-dificuldade de compreensão funcionamento do FLASK e como fazer as postagens 
-corretamente. As instalações dos pacotes por si só já foram complicadas.
 
 Três dos nossos integrantes tiveram problemas ao instalar o Flask, devido à incom-
 patibilidade com a versão do Ubuntu.
@@ -102,14 +99,8 @@ Usando o virtualenv, não foi possível instalar o lxml.
 6. A fazer
 ================================================================================
 
-   * Completar a execução da web API (modo servidor)
-   * Cuidar dos erros, quando valida() falha. i.e. error 404, etc.
    * Refatorar o código e deixar o código com um única linguagem (nomes de
         métodos e atributos somente em en-us ou pt-br)
-   * Adicionar a opção de se criar um obj Pokemon() através de um arquivo.
-        - def __init__(self, entrada = None)
-            if entrada != None: redireciona_std_in #ver teste_*.py
-    
-    
+   
    * Etapa 3.
 

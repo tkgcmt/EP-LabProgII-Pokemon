@@ -19,7 +19,7 @@ import os
 class Arena:
    def __init__(self):
       self.contador = 0
-      self.tabela = [               #Bird
+      self.tabela = [            #Bird
       #  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
       [ 1.0,1.0,1.0,1.0,1.0,0.5,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 ], # 0 - Normal
       [ 2.0,1.0,0.5,0.5,1.0,2.0,1.0,0.5,0.0,1.0,1.0,1.0,1.0,0.5,2.0,1.0 ], # 1 - Fight
@@ -36,7 +36,7 @@ class Arena:
       [ 1.0,1.0,2.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,2.0,0.5,0.5,1.0,1.0,0.5 ], # 12- Eletr
       [ 1.0,2.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.5,1.0,1.0 ], # 13- Psychc
       [ 1.0,1.0,2.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,0.5,2.0,1.0,1.0,0.5,2.0 ], # 14- Ice
-     # [ 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0 ]  # 15- Dragon
+      [ 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0 ]  # 15- Dragon
                 ]
 
 
@@ -138,8 +138,8 @@ class Arena:
       if poke.possui_ataques ():
          while ( True ):
             try:
-               opt = int ( input ( 'Qual ataque deseja executar?' ) )
-               if opt >= 0 and opt < poke.get_numAtk ():
+               opt = int ( input ( 'Qual ataque deseja executar?  ' ) )
+               if opt > 0 and opt <= poke.get_numAtk ():
                   atk = poke.moveset[opt]
                   if atk.get_pp () < 1:
                      print ( 'Sem movimentos restantes' )
@@ -153,7 +153,7 @@ class Arena:
 
       else:
          print ( poke.get_name (), 'nao possui mais ataques.' )
-         opt = poke.get_numAtk ()
+         opt = 0
 
       return opt
 
@@ -168,7 +168,7 @@ class Arena:
          print ( defesa.get_name (), 'perdeu', "%.2f" %porcentagem, '% da sua vida' )
          defesa.set_hp ( defesa.get_hp () - dano )
 
-         if numero == ataque.get_numAtk (): # Struggle
+         if numero == 0: # Struggle
             print ( ataque.get_name (), 'sofre com o recoil' )
             dano = int ( dano / 2 )
             porcentagem = dano / ataque.get_hp () * 100
@@ -237,7 +237,7 @@ class Arena:
 
       while ( self.turno ( self.pkmn1, self.pkmn2 ) ):
          print('\n')
-         input ( 'Pressione qualquer tecla para iniciar o proximo turno' )
+         input ( 'Pressione qualquer tecla para iniciar o proximo turno  ' )
 
       os.system ( 'clear' )
       print ( '   Fim da Batalha' )

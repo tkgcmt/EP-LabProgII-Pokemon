@@ -85,10 +85,8 @@ class xml_class():
    def valida ( self, xml_string ):
       
       # Salva a string em arquivo
-      '''
       with open("output.xml",'w') as f:
          f.write(xml_string)
-      '''
       schema = etree.XMLSchema(etree.parse(self.schema_file))
       xmlparser = etree.XMLParser(schema=schema)
       
@@ -109,23 +107,27 @@ class xml_class():
 
    # Imprime informacoes essenciais a partir da arvore
    def imprime_basico ( self, tree ):
-      print("HELLO\n\n", tree.get_value , "\n\n\n")
       for k in range(len(tree.pokemon)):
          print("\n")
-         print(tree.pokemon[k]["name"].text, ": lvl ",tree.pokemon[k]["level"].text)
-         print("hp: ", tree.pokemon[k].attributes["health"].text)
+         print(tree.pokemon[k]["name"].text, "\nlvl: ",
+               tree.pokemon[k]["level"].text)
+         print("HP: ", tree.pokemon[k].attributes["health"].text)
          for i in range(len(tree.pokemon[k].attacks)):
-            print(tree.pokemon[k].attacks[i]["id"], " ",
-            tree.pokemon[k].attacks[i]["name"])
-            print("pp left: ", tree.pokemon[k].attacks[i]["power_points"])
+            print('    ', tree.pokemon[k].attacks[i]["id"], " - ",
+                  tree.pokemon[k].attacks[i]["name"], "    PP left: ", 
+                  tree.pokemon[k].attacks[i]["power_points"])
 
-   # Atualiza atributos de poke com as informacoes da arvore xml elem.
-   def atualiza_poke_xml ( self, elem, poke ):
-      attributes = elem.pokemon[ 'attributes']
+   # Atualiza atributos de poke com as informacoes do xml.
+   def atualiza_poke_xml ( self, xml, poke ):
+      tree = self.cria_arvore(xml)
+      for i in range(len(tree.pokemon)):
+         if tree.pokemon[i]['name'].text == poke.get_name():
+            elem_poke = tree.pokemon[i]   
+      attributes = elem_poke[ 'attributes']
       hp = int ( attributes[ 'health' ].text )
       poke.set_hp ( hp )
 
-      attacks = elem.pokemon[ 'attacks' ]
+      attacks = elem_poke[ 'attacks' ]
       for i in range ( len ( attacks ) ):
          atk_elem = attacks[i]
          nid = int ( atk_elem['id'].text )

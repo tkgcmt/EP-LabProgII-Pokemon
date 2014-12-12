@@ -254,7 +254,7 @@ class Pokemon:
          
    ### Metodos
    def possui_ataques ( self ):
-      for i in range ( self.numAtk ):
+      for i in range ( 1, self.numAtk + 1 ):
          atk = self.moveset[i]
          if atk.tem_movimentos() == True:
             return True
@@ -263,13 +263,12 @@ class Pokemon:
    # mostra o ataque de indice i do objeto
    def mostra_ataque ( self, i ):
       ptr = self.get_movimento ( i )
-      linha = ('  '+ str(i) + ' - ' + ptr.get_name() + '  PP:( '
+      linha = ('    '+ str(i) + ' - ' + ptr.get_name() + '  PP:( '
       + str(ptr.get_pp ()) + ' / ' + str(ptr.get_ppmax ()) + ' )')
       return linha 
 
    # mostra a lista de ataques do objeto
    def mostra_lista_movimentos ( self ):
-      print ( self.name )
       for i in range ( self.numAtk ):
          print(self.mostra_ataque( i + 1 ))
       print('\n')

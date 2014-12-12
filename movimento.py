@@ -45,7 +45,7 @@ class Movimento:
          try:
             temp = int ( input ( 'Digite o poder do ataque: \n' ) ) 
             self.set_power(temp)
-            if self.power:
+            if self.power >= 0:
                break
             else:
                print ( 'ERRO: Poder do ataque invalido. Tente novamente' )

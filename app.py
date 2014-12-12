@@ -20,7 +20,6 @@ import sys, os
 # Usamos uma divertida convencao de nomes aqui: RED = servidor, BLUE = cliente
 
 app = Flask(__name__)
-api = Api(app)
 parser = xml_class()
 are = Arena()
 ERROR_400 = "ERROR 400 - BAD REQUEST\nCliente, seu XML nao passou a validacao\n"
